@@ -1,0 +1,2 @@
+
+mvn archetype:generate -DarchetypeGroupId=com.github.lalyos -DarchetypeArtifactId=standalone-jpa-eclipselink-archetype -DgroupId=com.mastertheboss -DartifactId=EclipseJPAExample -Dversion=1.0-SNAPSHOT -Dpackage=com.mastertheboss -DinteractiveMode=false

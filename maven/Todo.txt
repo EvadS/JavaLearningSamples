@@ -1,0 +1,4 @@
+$ mvn archetype:create \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DgroupId=com.mycompany.app \
+  -DartifactId=my-app

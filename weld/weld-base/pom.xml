@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.se.weld.base</groupId>
+  <artifactId>weld-base</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <name>wled-base</name>
+
+  <properties>
+    <version.javaee>7.0</version.javaee>
+    <version.weld>2.3.2.Final</version.weld>
+    <version.junit>4.11</version.junit>
+    <!-- Databases -->
+    <version.derby>10.10.1.1</version.derby>
+    <version.mysql>8.0.13</version.mysql>
+
+    <version.eclipselink>2.6.2</version.eclipselink>
+    <version.maven.exec.plugin>1.2.1</version.maven.exec.plugin>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${version.javaee}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- CDI -->
+    <dependency>
+      <groupId>org.jboss.weld.se</groupId>
+      <artifactId>weld-se</artifactId>
+      <version>${version.weld}</version>
+    </dependency>
+
+    <!-- Test -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.junit}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JPA -->
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.jpa</artifactId>
+      <version>${version.eclipselink}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
+      <version>${version.eclipselink}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.0-api -->
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.0-api</artifactId>
+      <version>1.0.1.Final</version>
+    </dependency>
+
+
+    <!-- Derby -->
+      <dependency>
+          <groupId>org.apache.derby</groupId>
+          <artifactId>derby</artifactId>
+          <version>${version.derby}</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.derby</groupId>
+          <artifactId>derbyclient</artifactId>
+          <version>${version.derby}</version>
+      </dependency>
+
+    <!-- MySQL -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${version.mysql}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+          <version>${version.maven.exec.plugin}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>org.agoncal.book.javaee7.chapter02.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

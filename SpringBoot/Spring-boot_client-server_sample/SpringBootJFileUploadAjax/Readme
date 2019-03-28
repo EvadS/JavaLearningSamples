@@ -1,0 +1,26 @@
+
+Spring Boot File Upload Example
+http://localhost:8085/
+
+Technoligies
+
+- Thymeleaf
+- Web
+
+сейчас ничего от ангуляра !/!!!! JQUERY
+
+
+@RequestParam(value = "file") MultipartFile file
+
+@RequestMapping(value = "/upload/{galleryId}", method = RequestMethod.GET)
+public ResponseEntity<byte[]> getFile(@PathVariable("galleryId")String galleryId
+
+
+@RequestBody
+@PostMapping("/users")
+public User save(@RequestBody User u)
+
+@GetMapping("/users")
+public Object[] getAll() {
+return userService.getAllUsers();
+

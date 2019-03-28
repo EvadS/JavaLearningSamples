@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+  <persistence-unit name="chapter04PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>org.agoncal.book.javaee7.chapter02.MusicBand</class>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.create-target" value="chapter04Create.ddl"/>
+      <property name="javax.persistence.schema-generation.scripts.drop-target" value="chapter04Drop.ddl"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/chapter04DB;create=true"/>
+      <property name="javax.persistence.jdbc.user" value="APP"/>
+      <property name="javax.persistence.jdbc.password" value="APP"/>
+      <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
+      <property name="eclipselink.logging.level" value="INFO"/>
+    </properties>
+  </persistence-unit>
+
+    <!-- EclipseLink + MySQL -->
+    <persistence-unit name="eclipselinkPu" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>org.agoncal.book.javaee7.chapter02.Book</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.user" value="evad" />
+            <property name="javax.persistence.jdbc.password" value="123456" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/BookDb?useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+
+            <property name="eclipselink.logging.level" value="FINEST"/>
+            <property name="eclipselink.target-database" value="MySQL"/>
+
+            <!--<property name="javax.persistence.schema-generation.database.action" value="none"/>-->
+            <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+            <!--&lt;!&ndash; which scripts the persistence provider shall create &ndash;&gt;-->
+            <!--<property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create" />-->
+            <!--&lt;!&ndash; Create the required database schemas true | false &ndash;&gt;-->
+            <!--<property name="javax.persistence.schema-generation.create-database-schemas" value="true" />-->
+
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+
+            <!-- Populate the database -->
+            <!--<property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>-->
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+            <property name="javax.persistence.sql-load-script-source" value="inserMySqlScript.sql"/>
+
+
+
+            <property name="eclipselink.canonicalmodel.subpackage" value="test2"/>
+
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="mysql-eclipselink"
+                      transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bookdb?serverTimezone=UTC" />
+            <property name="javax.persistence.jdbc.user" value="evad" />
+            <property name="javax.persistence.jdbc.password" value="123456"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+            <property name="eclipselink.ddl-generation.output-mode" value="database" />
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.sql-load-script-source" value="META-INF/inserMySqlScript.sql" />
+        </properties>
+    </persistence-unit>
+
+
+  <persistence-unit name="chapter04TestPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>org.agoncal.book.javaee7.chapter02.MusicBand</class>
+      <class>org.agoncal.book.javaee7.chapter02.Book</class>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.create-target" value="create.sql"/>
+      <property name="javax.persistence.schema-generation.scripts.drop-target" value="drop.sql"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:chapter04DB;create=true"/>
+      <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
+      <property name="eclipselink.logging.level" value="INFO"/>
+      <property name="eclipselink.canonicalmodel.subpackage" value="test"/>
+    </properties>
+  </persistence-unit>
+
+</persistence>        

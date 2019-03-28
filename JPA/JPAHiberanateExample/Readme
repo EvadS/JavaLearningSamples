@@ -1,0 +1,18 @@
+
+create db
+CREATE SCHEMA `carshop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+Если вы используете IntellijIdea, то должны увидеть, что в строке 36 подчеркивается красным Car.getAll так как ваш проект еще не знает, что вы используете JPA он не опознает эту запись.
+Давайте укажем для нашего проекта, что мы используем JPA:
+Заходим в File->Project Structure->Modules и в списке где ваш проект нажимаете по нему и выбираете New->JPA:
+
+После жмем плюс и выбираем persistence.xml.
+
+
+CREATE SCHEMA `companydb` ;
+
+3.0
+---- DATABASE CREATION ----
+create database if not exists cascadedb;
+use cascadedb;
+------------------

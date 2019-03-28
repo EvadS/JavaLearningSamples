@@ -1,0 +1,4 @@
+Running final application
+In order to run our final application use the maven command below in your terminal under the root directory of the project.
+
+mvn clean install

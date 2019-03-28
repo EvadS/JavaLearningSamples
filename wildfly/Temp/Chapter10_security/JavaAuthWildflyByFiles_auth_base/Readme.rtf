@@ -1,0 +1,83 @@
+﻿
+Базовый пример как сделать логин пароль  в связке java EE + wildfly
+
+для запуска
+1. создать пользователя
+Bin 	директория сервера 
+
+add-user.bat
+
+add a new user via the add-user.sh/add-user.bat script.
+
+3. как типа работает
+    <security-constraint>
+     ...
+     <url-pattern>/*</url-pattern>
+              ..
+    <..security-constraint>
+
+в этом случаее весь контент доступен только для авторизиарованных пользователей
+
+standalone.xml
+
+demouser1
+123456
+manager
+
+тип 2 applicationuser
+role : согласно тому что указано в web.xml
+MANAGER
+
+ <subsystem xmlns="urn:jboss:domain:security:2.0">
+            <security-domains>
+                <security-domain name="other" cache-type="default">
+                    <authentication>
+                        <login-module code="Remoting" flag="optional">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="RealmDirect" flag="required">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+
+                ...
+
+  ecurity-domain name="other" вот откуда предположительно берется значение в файле jboss-web.xml
+
+  в книге идет акцент на
+  <subsystem xmlns=“urn:jboss:domain:security:1.2”>
+  <security-domains>
+  <security-domain name=“other” cache-type=“default”>
+  <authentication>
+  <login-module code=“Remoting” flag=“optional”>
+  <module-option name=“password-stacking”
+  value=“useFirstPass”/>
+  </login-module>
+  <login-module code=“RealmDirect” flag=“required”>
+  <module-option name=“password-stacking”
+  value=“useFirstPass”/>
+  </login-module>
+  </authentication>
+  </security-domain>
+  <security-domain name=“jboss-web-policy” cache-type=“default”>
+  <authorization>
+  <policy-module code=“Delegating” flag=“required”/>
+  </authorization>
+  </security-domain>
+  <security-domain name=“jboss-ejb-policy” cache-type=“default”>
+  <authorization>
+  <policy-module code=“Delegating” flag=“required”/>
+  </authorization>
+  </security-domain>
+  </security-domains>
+  </subsystem>
+
+  The next configuration tweak needs to be performed on the JBoss web deployment’s
+  descriptor, WEB-INF/jboss-web.xml. You need to declare the security domain here, which
+  will be used to authenticate the users. Since we are using RealmDirect, which is part of
+  the other built-in login module, we will need to include the java:/jaas/other context
+  information:
+  <jboss-web>
+  <security-domain>java:/jaas/other</security-domain>
+  </jboss-web>

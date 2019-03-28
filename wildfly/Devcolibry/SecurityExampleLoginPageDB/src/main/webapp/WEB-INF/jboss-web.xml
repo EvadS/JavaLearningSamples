@@ -1,0 +1,4 @@
+<jboss-web>
+    <security-domain>secureDomain</security-domain>
+    <!--<security-domain>dbdomain</security-domain>-->
+</jboss-web>

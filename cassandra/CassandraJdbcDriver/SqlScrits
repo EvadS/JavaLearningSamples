@@ -1,0 +1,92 @@
+CREATE KEYSPACE cycling
+  WITH REPLICATION = {
+   'class' : 'SimpleStrategy',
+   'replication_factor' : 1
+  };
+  ---
+  use cycling;
+
+select street from address2;
+
+CREATE TYPE address2 ( street text, city text,zip int );
+
+  CREATE TABLE user_profiles (
+      login text PRIMARY KEY,
+      first_name text,
+      last_name text,
+      email text,
+      addresses map<text, frozen<address>>
+  );
+
+  // Inserts a user with a home address
+  INSERT INTO user_profiles(login, first_name, last_name, email, addresses)
+  VALUES ('tsmith',
+          'Tom',
+          'Smith',
+          'tsmith@gmail.com',
+          { 'home': { street: '1021 West 4th St. #202',
+                      city: 'San Fransisco',
+                      zip: 94110 }});
+
+  // Adds a work address for our user
+  UPDATE user_profiles
+     SET addresses = addresses
+                   + { 'work': { street: '3975 Freedom Circle Blvd',
+                                 city: 'Santa Clara',
+                                 zip: 95050 }}
+   WHERE login = 'tsmith';
+
+   ----
+    CREATE TYPE phone (
+         number text,
+         tags set<text>
+     );
+
+     // Add a 'phones' field to address that is a set of the 'phone' UDT above
+     ALTER TYPE address ADD phones set<frozen<phone>>;
+
+     SELECT * FROM user_profiles;
+
+      CREATE TABLE location (
+           id int PRIMARY KEY,
+           addr frozen<address>, // Reuse the address type from above
+           longitude double,
+           latitude double
+       );
+
+       // The following is allowed
+       SELECT addr.street, addr.city FROM location WHERE id=42;
+---------------------------------------------
+       Secondary indexes on collections
+CREATE TABLE products (
+      id int PRIMARY KEY,
+      description text,
+      price int,
+      categories set<text>,
+      features map<text, text>
+  );
+
+  // This is now allowed in Cassandra 2.1
+  CREATE INDEX cat_index ON products(categories);
+  CREATE INDEX feat_index ON products(features);
+
+  INSERT INTO products(id, description, price, categories, features)
+       VALUES (34134,
+               '120-inch 1080p 3D plasma TV',
+               9999,
+               {'tv', '3D', 'hdtv'},
+               {'screen' : '120-inch', 'refresh-rate' : '400hz', 'techno' : 'plasma'});
+
+  INSERT INTO products(id, description, price, categories, features)
+       VALUES (29412,
+               '32-inch LED HDTV (black)',
+               929,
+               {'tv', 'hdtv'},
+               {'screen' : '32-inch', 'techno' : 'LED'});
+
+  INSERT INTO products(id, description, price, categories, features)
+       VALUES (38471,
+               '32-inch LCD TV',
+               110,
+               {'tv', 'used'},
+               {'screen' : '32-inch', 'techno' : 'LCD'});

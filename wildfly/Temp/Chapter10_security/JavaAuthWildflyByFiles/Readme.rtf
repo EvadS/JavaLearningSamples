@@ -1,0 +1,39 @@
+
+Базовый пример как сделать логин пароль  в связке java EE + wildfly
+
+для запуска
+1. создать пользователя
+
+add a new user via the add-user.sh/add-user.bat script.
+
+3. как типа работает
+    <security-constraint>
+     ...
+     <url-pattern>/*</url-pattern>
+              ..
+    <..security-constraint>
+
+в этом случаее весь контент доступен только для авторизиарованных пользователей
+
+standalone.xml
+
+
+add-user.bat
+
+тип 2 application user
+role : согласно тому что указано в web.xml
+MANAGER
+
+demouser2
+123456
+manager
+---------
+<jboss-web>
+          <security-domain>java:/jaas/other</security-domain>
+         </jboss-web>
+         ---------
+
+
+Открываем файлик в WildFly который находиться по пути: standalone/configuration/standalone.xml
+Там ищем тег security-domains  и внутрь него добавляем свой доммен.
+

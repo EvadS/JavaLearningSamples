@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.se.weld.base</groupId>
+  <artifactId>weld-base</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <name>wled-base</name>
+
+  <properties>
+    <version.javaee>7.0</version.javaee>
+    <version.weld>2.3.2.Final</version.weld>
+    <version.junit>4.11</version.junit>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.weld.se</groupId>
+      <artifactId>weld-se</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${version.javaee}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- CDI -->
+    <dependency>
+      <groupId>org.jboss.weld.se</groupId>
+      <artifactId>weld-se</artifactId>
+      <version>${version.weld}</version>
+    </dependency>
+
+    <!-- Test -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.junit}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>org.agoncal.book.javaee7.chapter02.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

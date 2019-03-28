@@ -1,0 +1,79 @@
+Оборачивание jar в exe-файл
+
+Во времена моего велосипеда я наткнулся на хорошую программку launch4j, которая мало того, что оборачивала
+ jar в exe, так она ещё и позволяла добавить иконку приложению (а без неё exe-шник очень похож был на
+ какой-нибудь вирус или старую добрую dos-программу), информацию об авторе, версии и прочем, указать,
+ какую версию jre следует использовать, откуда на неё ссылаться (можно ведь и portable-версию с собой таскать),
+ да в общем много чего там ещё можно сделать. Все настройки хранятся в xml-файле, его описание лежит на 
+ сайте программы. Велосипедом я формировал этот xml-файл и передавал его путь в качестве параметра вызываемого
+ launch4j.exe. На выходе получал exe-файл, который был привязан к зависимостям также, как и его jar-собрат 
+ (т.е. должен лежать там же, ссылаться на те же зависимости, если не указаны какие-либо особые параметры 
+ конечно же). Каково было моё счастье, что эта полезная программка существует и в виде плагина к maven.
+ Конфигурация плагина практически полностью соответствует его старшему брату-программе, за исключением 
+ некоторых особенностей, которые можно подглядеть вот здесь. Кстати говоря, можно собирать бинарники не
+ только ОС Windows, но и под Linux. Ниже приведен мой конфиг.
+ 
+ <plugin>
+    <groupId>com.akathist.maven.plugins.launch4j</groupId>
+    <artifactId>launch4j-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>l4j-clui</id>
+            <phase>package</phase>
+            <goals>
+                <goal>launch4j</goal>
+            </goals>
+            <configuration>
+                <headerType>gui</headerType>
+                <outfile>target/${exeFileName}.exe</outfile>
+                <jar>target/${project.artifactId}-${project.version}.jar</jar>
+                <errTitle>${product.title}</errTitle>
+                <icon>favicon.ico</icon>
+                <classPath>
+                    <mainClass>com.khmb.block_v2.Block_v2App</mainClass>
+                    <addDependencies>true</addDependencies>
+                    <preCp>anything</preCp>
+                </classPath>
+                <jre>
+                    <minVersion>${jdkVersion}.0</minVersion>
+                </jre>
+                <versionInfo>
+                    <fileVersion>${project.version}.0</fileVersion>
+                    <txtFileVersion>${project.version}</txtFileVersion>
+                    <fileDescription>Программа для блокировки счетов в соответствии со списком</fileDescription>
+                    <copyright>Copyright © 2011 ${product.company}</copyright>
+                    <productVersion>${project.version}.0</productVersion>
+                    <txtProductVersion>${project.version}</txtProductVersion>
+                    <companyName>${product.company}</companyName>
+                    <productName>${product.title}</productName>
+                    <internalName>${exeFileName}</internalName>
+                    <originalFilename>${exeFileName}.exe</originalFilename>
+                </versionInfo>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
+Я указал, какую версию jre следует использовать (соответствует переменной ${jdkVersion}), входной файл,
+ выходной файл, какую иконку прикрутить, ну и информацию, которую можно глянуть при просмотре информации 
+ об exe-файле. Почему номер версии jre написан так: ${jdkVersion}.0? Всё очень просто, плагин launch4j
+ требует номер версии в формате x.x.x[_x], а в другом месте файла pom.xml (в конфигурации плагина компиляции)
+ требуется указать номер версии в формате x.x. Ну не следить же за идентичными параметрами по отдельности?
+ Поэтому общая часть была вынесена в переменную (смотри в конце).
+ 
+ ------------------
+ лагин подтянулся из maven-репозитория в интернете (в центральном репозитории этого плагина нет) требуется указать ещё один:
+<repositories>
+    <repository>
+        <id>akathist-repository</id>
+        <name>Akathist Repository</name>
+        <url>http://www.9stmaryrd.com/maven</url>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <id>akathist-repository</id>
+        <name>Akathist Repository</name>
+        <url>http://www.9stmaryrd.com/maven</url>
+    </pluginRepository>
+</pluginRepositories>

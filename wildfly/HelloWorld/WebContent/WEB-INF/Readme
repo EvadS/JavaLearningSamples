@@ -1,0 +1,20 @@
+
+
+servlet without using the web.xml configuration file.
+
+a JBoss file descriptor named jboss-web.xml in /WebContent/WEB-INF/ directory;
+
+The schema definition file for jboss-web.xml is named jboss-web_8_0.xsd and can be
+located in the JBOSS_HOME/docs/schema folder.
+
+ создание jboss-web.xml делает приложение не переносным для других
+Серверы приложений Java EE.
+
+right-clicking on
+the Eclipse Server tab and selecting Add and Remove.
+
+click on Add to add the project to the list of configured resources on the server
+
+f you have started WildFly from inside Eclipse, the resource will be automatically
+deployed by checking the flag to see whether the server has started, and publish changes
+immediately

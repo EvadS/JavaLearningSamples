@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload Files</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/main.js}"></script>
+</head>
+<body>
+<h1>Spring Boot File Upload with jQuery Ajax</h1>
+<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+    Description: <br/>
+    <input type="text" name="description" style="width:350px;"/>
+    <br/><br/>
+    File to upload (1): <input type="file" name="files"/><br />
+    File to upload (2): <input type="file" name="files"/><br />
+    File to upload (3): <input type="file" name="files"/><br />
+    File to upload (4): <input type="file" name="files"/><br />
+    File to upload (5): <input type="file" name="files"/><br />
+    <input type="submit" value="Submit" id="submitButton"/>
+</form>
+<h2>Upload Results:</h2>
+<div style="border:1px solid #ccc;padding: 5px;">
+    <span id="result"></span>
+</div>
+
+</body>
+</html>

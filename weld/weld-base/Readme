@@ -1,0 +1,18 @@
+
+Internal Exception: java.sql.SQLException: The server time zone value 'Ôèíëÿíäèÿ (çèìà)' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver
+    SET GLOBAL time_zone = '+3:00';
+
+    start it test
+
+    mvn integration-test
+
+    Перед тем, как соединяться из Hibernate с MySQL, не забудьте создать пользователя, базу данных и предоставить пользователю права на неё:
+    CREATE USER 'test'@'%' IDENTIFIED BY 'test';
+    CREATE DATABASE test;
+    GRANT ALL PRIVILEGES ON test.* TO test;
+    FLUSH PRIVILEGES
+ -----------------------------------------------------
+
+ SET GLOBAL time_zone = '+8:00';
+ SET GLOBAL time_zone = 'Europe/Helsinki';
+ SET @@global.time_zone = '+00:00';
