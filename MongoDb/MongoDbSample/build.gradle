@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+group 'MongoDbSample'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = 'com.se.sample.Program'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = 'name'
+    version =  '1.0'
+    manifest.attributes("Main-Class": mainClassName)
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+sourceSets {
+    main.java.srcDirs += 'src/main/java'
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.12'
+    compile 'org.mongodb:mongo-java-driver:3.9.1'
+
+    compile 'log4j:log4j:1.2.17'
+    testCompile 'junit:junit:4.11'
+}

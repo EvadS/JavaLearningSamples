@@ -1,0 +1,46 @@
+Install MongoDB Community Edition with Homebrew
+
+1.Update Homebrew’s package database
+-
+brew update
+-
+2. Install MongoDB.
+-
+brew install mongodb
+-
+Install the Latest Development Release of MongoDB
+-
+brew install -v --fresh mongodb
+-
+
+Run MongoDB
+mkdir -p /data/db
+
+sudo chmod -R 0777 /data/db
+
+Запуск
+mongod --dbpath /Users/mac/Documents/DataBase/Mongo/db
+
+5
+Begin using MongoDB
+Shell оболочка(клиент )
+mongo
+
+---------
+
+	        MongoDB		
+Database Server	mongod	
+Database Client	mongo
+
+Create table 
+https://docs.mongodb.com/manual/reference/sql-comparison/
+-----------------------------------------------------------
+use admin
+
+db.createUser(
+  {
+    user: "myadmin",
+    pwd: "123456",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+  }
+)
