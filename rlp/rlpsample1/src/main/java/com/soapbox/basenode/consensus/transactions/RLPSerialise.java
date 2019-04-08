@@ -4,4 +4,5 @@ import net.consensys.cava.bytes.Bytes;
 
 public interface RLPSerialise {
     Bytes getBytes();
+
 }

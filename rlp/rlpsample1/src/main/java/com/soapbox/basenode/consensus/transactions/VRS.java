@@ -33,18 +33,22 @@ public class VRS implements RLPSerialise {
 
     public static VRS fromBytes(Bytes encoded) throws RLPException {
         requireNonNull(encoded);
-        if (encoded.isEmpty())
-            throw new RLPException("Encoded strings should be not empty.");
 
-        if (encoded.isZero()) {
-            throw new RLPException("Encoded strings should not contains only zeros.");
-        }
-        if (RLPUtils.isWhitespaces(encoded)) {
-            throw new RLPException("Encoded strings should not contains only whitespaces.");
-        }
-
+        VRS.validateBytesVRS(encoded);
         VRS vrs = RLP.decode(encoded, VRS::readFrom);
         return vrs;
+    }
+
+    public static void validateBytesVRS(Bytes bytes) {
+        if (bytes.isEmpty())
+            throw new RLPException("Encoded strings should be not empty.");
+
+        if (bytes.isZero()) {
+            throw new RLPException("Encoded strings should not contains only zeros.");
+        }
+        if (RLPUtils.isWhitespaces(bytes)) {
+            throw new RLPException("Encoded strings should not contains only whitespaces.");
+        }
     }
 
     public static VRS readFrom(RLPReader reader) throws RLPException {

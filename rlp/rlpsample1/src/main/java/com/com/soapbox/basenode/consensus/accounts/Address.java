@@ -21,7 +21,7 @@ public class Address {
     }
 
     public Address(byte[] address) throws ParseException {
-        if (address == null || address.length != ADDRESS_LENGTH) {
+        if (address == null || address.length !=ADDRESS_LENGTH) {
             throw new ParseException("Wrong address data");
         }
         this.address = address;
@@ -33,6 +33,8 @@ public class Address {
     }
 
 
+    public void validate() {
 
+    }
 }
 

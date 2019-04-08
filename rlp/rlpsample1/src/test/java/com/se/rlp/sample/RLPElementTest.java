@@ -15,8 +15,6 @@ public class RLPElementTest {
 
         Bytes rlpBytes = rlpElement.getBytes();
         RLPElement resultRlp = RLPElement.fromBytes(rlpBytes);
-
         Assert.assertEquals(rlpElement, resultRlp);
-        Assert.assertArrayEquals(resultRlp.getArray(), array);
     }
 }

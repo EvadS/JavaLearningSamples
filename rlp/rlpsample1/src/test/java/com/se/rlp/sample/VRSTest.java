@@ -40,8 +40,9 @@ public class VRSTest {
         rlpR = RLPElement.fromBytes(bytesR);
         rlpS = RLPElement.fromBytes(bytesS);
 
-        zeroRLP = RLPElement.fromBytes(Bytes.EMPTY);
-        emptyRLP = RLPElement.fromBytes(Bytes.wrap(whiteSpacesByteArray));
+        // for next Test
+      //  zeroRLP = RLPElement.fromBytes(Bytes.EMPTY);
+       // emptyRLP = RLPElement.fromBytes(Bytes.wrap(whiteSpacesByteArray));
     }
 
     @Test(expected = NullPointerException.class)
@@ -53,12 +54,6 @@ public class VRSTest {
     public void is_zero_corect_work_vrs() {
         VRS localVRS = new VRS(rlpV, rlpR, rlpS);
         Assert.assertEquals(false, VRS.isNullOrEmptyOrWhitespace(localVRS));
-
-        localVRS = new VRS(rlpV, rlpR, zeroRLP);
-        Assert.assertEquals(true, VRS.isNullOrEmptyOrWhitespace(localVRS));
-
-        localVRS = new VRS(rlpV, emptyRLP, zeroRLP);
-        Assert.assertEquals(true, VRS.isNullOrEmptyOrWhitespace(localVRS));
     }
 
     @Test

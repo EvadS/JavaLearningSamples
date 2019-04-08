@@ -1,5 +1,8 @@
 package com.soapbox.basenode.consensus.enums;
 
+import com.soapbox.basenode.consensus.transactions.RLPSerialise;
+import net.consensys.cava.bytes.Bytes;
+
 public enum TransactionType {
     Transfer((byte) 1),
     FundsBlock((byte) 2),
@@ -18,6 +21,12 @@ public enum TransactionType {
         return code;
     }
 
+    public byte[] asByteArray(){
+        byte[]codeArray = {code};
+        return  codeArray;
+    }
+
+
     public static TransactionType fromByte(byte element) {
         for (TransactionType transactionType : TransactionType.values()) {
             if (transactionType.code == element) {
@@ -26,4 +35,6 @@ public enum TransactionType {
         }
         return null;
     }
+
+
 }
