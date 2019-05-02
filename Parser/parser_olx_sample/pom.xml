@@ -23,6 +23,7 @@
         <module>parser-core</module>
         <module>parser-web</module>
         <module>parser-database</module>
+        <module>parser-models</module>
     </modules>
 
     <dependencies>

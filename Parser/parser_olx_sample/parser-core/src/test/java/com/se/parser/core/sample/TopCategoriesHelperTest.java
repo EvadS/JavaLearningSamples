@@ -1,12 +1,9 @@
 package com.se.parser.core.sample;
 
-import com.se.parser.core.sample.helper.AnnouncementHelper;
-import com.se.parser.core.sample.helper.DocumentHelper;
-import com.se.parser.core.sample.helper.TopCategoriesHelper;
+import com.se.parser.core.sample.parser.DocumentHelper;
+import com.se.parser.core.sample.parser.TopCategoriesHelper;
 import com.se.parser.core.sample.model.Category;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +27,7 @@ public class TopCategoriesHelperTest {
 
     @Test
     public  void download_categories_page (){
-       // AnnouncementHelper
+       // OffersHelper
         List<Category> categoriesList =  TopCategoriesHelper.getTopCategoriesListFromString(document);
         int len = categoriesList.size();
         Assert.assertTrue(len > 0);

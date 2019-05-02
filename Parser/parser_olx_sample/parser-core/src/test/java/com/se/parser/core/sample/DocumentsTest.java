@@ -1,13 +1,10 @@
 package com.se.parser.core.sample;
 
-import com.se.parser.core.sample.helper.AnnouncementHelper;
-import com.se.parser.core.sample.helper.DocumentHelper;
+import com.se.parser.core.sample.parser.DocumentHelper;
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,11 +36,5 @@ public class DocumentsTest {
 
     }
 
-    @Test
-    public void should_get_categories_links(){
 
-      Elements elements =  AnnouncementHelper.getAnnouncementsList(document);
-
-        Assert.assertNotNull(elements);
-    }
 }

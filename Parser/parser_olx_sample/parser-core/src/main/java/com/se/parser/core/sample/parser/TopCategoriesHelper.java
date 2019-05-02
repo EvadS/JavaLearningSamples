@@ -1,4 +1,4 @@
-package com.se.parser.core.sample.helper;
+package com.se.parser.core.sample.parser;
 
 import com.se.parser.core.sample.model.Category;
 import org.jsoup.nodes.Document;

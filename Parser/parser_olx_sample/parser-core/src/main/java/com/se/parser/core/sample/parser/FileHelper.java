@@ -1,4 +1,4 @@
-package com.se.parser.core.sample.helper;
+package com.se.parser.core.sample.parser;
 
 import java.io.File;
 

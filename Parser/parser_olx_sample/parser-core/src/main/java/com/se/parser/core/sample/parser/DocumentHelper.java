@@ -1,4 +1,4 @@
-package com.se.parser.core.sample.helper;
+package com.se.parser.core.sample.parser;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
