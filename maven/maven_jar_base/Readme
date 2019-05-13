@@ -1,0 +1,13 @@
+
+Работа с лямбдами и maven
+на выходе executable jar файл
+This ensures the JAR is built when executing
+
+step 1.
+mvn install
+
+step 2.
+ mvn package
+
+ inside directory with pom
+ java -jar target/myJar.jar
