@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="first-java-project_generated" target="1.8" />
+      <module name="first-java-project_main" target="1.8" />
+      <module name="first-java-project_test" target="1.8" />
+      <module name="first-java-project_variantA" target="1.8" />
+      <module name="first-java-project_variantB" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
