@@ -1,4 +1,4 @@
-package com.example.sarafan;
+package com.se.example.sarafan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
