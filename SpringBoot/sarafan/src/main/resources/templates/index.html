@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <!-- версия для разработки, включает отображение полезных предупреждений в консоли -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.js"></script>
-
+    <script th:inline="javascript">
+        var frontendData = [[${frontendData}]];
+    </script>
 </head>
 <body>
 <h3>Sarafan</h3>
-<div id="app">
-    {{ message }}
-</div>
+<div id="app"></div>
 
-<script src="js/main.js"></script>
+<script src="/js/main.js"></script>
 
 
 </body>

@@ -33,13 +33,13 @@ dependencies {
 	compile('javax.xml.bind:jaxb-api')
 	//compile('com.sun.xml.bind:jaxb-core')
 
+//oauth
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.0.RELEASE')
 
-	//testImplementation('org.springframework.boot:spring-boot-starter-test') {
-	//	exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	//	exclude group: 'junit', module: 'junit'
-	//}
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-	///testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.5.RELEASE'
+	compile('org.springframework.session:spring-session-jdbc')
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'junit', module: 'junit' //by both name and group
