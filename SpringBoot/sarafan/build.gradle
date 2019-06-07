@@ -26,6 +26,14 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.postgresql:postgresql')
+	compile('org.projectlombok:lombok')
+	compile('javax.xml.bind:jaxb-api')
+	//compile('com.sun.xml.bind:jaxb-core')
+
+
 	//testImplementation('org.springframework.boot:spring-boot-starter-test') {
 	//	exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	//	exclude group: 'junit', module: 'junit'
