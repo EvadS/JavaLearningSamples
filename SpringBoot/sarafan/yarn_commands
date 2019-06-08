@@ -1,0 +1,13 @@
+
+1.
+yarn init
+
+2.  
+yarn add vue
+yarn add vue-resource
+yarn add -D webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env vue-loader
+
+ yarn add -D vue-template-compiler
+
+
+
