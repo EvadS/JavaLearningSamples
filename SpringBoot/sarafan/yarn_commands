@@ -10,4 +10,9 @@ yarn add -D webpack webpack-cli webpack-dev-server babel-loader @babel/core @bab
  yarn add -D vue-template-compiler
 
 
+ -------------------------------------
+ yarn add sockjs-client @stomp/stompjs
+
+
+
 
