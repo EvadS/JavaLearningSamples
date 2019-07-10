@@ -1,0 +1,63 @@
+------------------
+Запуск монго
+Сервак : 
+sudo mongod 
+---
+Shell оболочка(клиент )
+mongo
+-----------------------------
+
+http://localhost:8895/dbConnector/import-mongo/table_0_0_2/id
+--  где 
+table_0_0_2  - имя таблицы куда импортируем данные 
+id - которое будет выступать в качестве первичного ключем
+
+{
+  "portNumber": 27017,
+  "authUser": "jcg",
+  "authPwd": "admin@123",
+  "hostName": "localhost",
+  "dbName": "mongoauthdemo",
+  "encodedPwd": "",
+  "collectionName": "emp"
+}
+
+--
+запись в свою базу 
+http://localhost:8895/dbConnector/export-mongo/people/Example
+
+{
+  "portNumber": 27017,
+  "authUser": "jcg",
+  "authPwd": "admin@123",
+  "hostName": "localhost",
+  "dbName": "mongoauthdemo",
+  "encodedPwd": "",
+  "collectionName": "emp"
+}
+
+
+
+
+---- 
+Все доступные базы данных
+http://localhost:8895/dbConnector/tables-list
+
+{
+  "portNumber": 27017,
+  "authUser": "jcg",
+  "authPwd": "admin@123",
+  "hostName": "localhost",
+  "dbName": "mongoauthdemo"
+}
+
+******************************************************************************
+public List<String> getDatabaseNames(){
+    MongoClient mongoClient = new MongoClient(); //Maybe replace it with an already existing client
+    List<String> dbs = new ArrayList<String>();
+    MongoCursor<String> dbsCursor = mongoClient.listDatabaseNames().iterator();
+    while(dbsCursor.hasNext()) {
+        dbs.add(dbsCursor.next());
+    }
+    return dbs;
+}

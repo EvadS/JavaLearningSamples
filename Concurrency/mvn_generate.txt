@@ -1,0 +1,6 @@
+
+ mvn archetype:generate \
+        -DgroupId=com.se.cyclicbarrier.sample \
+        -DartifactId=DemoCyclicBarrierJava \
+        -DarchetypeArtifactId=maven-archetype-quickstart \
+        -DinteractiveMode=false

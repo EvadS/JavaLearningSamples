@@ -1,0 +1,63 @@
+
+ drop keyspace  packt;
+ -------------------------------------------
+start cqlSh
+bin/cqlsh 192.168.0.101 -u cassandra -p cassandra
+-------------------
+ create a new keyspace
+ CREATE KEYSPACE packt WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+
+------------------------------------------------------------------
+
+use packt;
+------------------------------------------------------------------
+CREATE TABLE hi_scores (name TEXT, game TEXT, score BIGINT, PRIMARY KEY (name,game));
+
+------------------------------------------------------------------
+ insert into
+
+INSERT INTO hi_scores (name, game, score) VALUES ('Dad','Pacman',182330);
+INSERT INTO hi_scores (name, game, score) VALUES ('Dad','Burgertime',222000);
+INSERT INTO hi_scores (name, game, score) VALUES ('Dad','Frogger',15690);
+INSERT INTO hi_scores (name, game, score) VALUES ('Dad','Joust',48150);
+INSERT INTO hi_scores (name, game, score) VALUES ('Connor','Pacman',182330);
+INSERT INTO hi_scores (name, game, score) VALUES ('Connor','Monkey Kong',15800);
+INSERT INTO hi_scores (name, game, score) VALUES ('Connor','Frogger',4220);
+INSERT INTO hi_scores (name, game, score) VALUES('Connor','Joust',48850);
+INSERT INTO hi_scores (name, game, score) VALUES ('Avery','Galaga',28880);
+INSERT INTO hi_scores (name, game, score) VALUES ('Avery','Burgertime',1200);
+INSERT INTO hi_scores (name, game, score) VALUES ('Avery','Frogger',1100);
+INSERT INTO hi_scores (name, game, score) VALUES ('Avery','Joust',19520);
+------------------------------------------------------------------
+
+SELECT * FROM hi_scores WHERE name='Connor';
+-------------------------------------------------------------------
+
+CREATE TABLE hi_scores_by_game (name TEXT, game TEXT, score BIGINT,
+  PRIMARY KEY (game,score)) WITH CLUSTERING ORDER BY (score DESC);
+
+  -----------------------------------------------------------------------
+
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Dad','Pacman',182330);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Dad','Burgertime',222000);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Dad','Frogger',15690);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Dad','Joust',48150);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Connor','Pacman',182330);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Connor','Monkey Kong',15800);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Connor','Frogger',4220);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Connor','Joust',48850);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Avery','Galaga',28880);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Avery','Burgertime',1200);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Avery','Frogger',1100);
+  INSERT INTO hi_scores_by_game (name, game, score) VALUES ('Avery','Joust',19520);
+
+  ---------------------------------------------------------------------------
+all the available keyspaces.
+SELECT * FROM system_schema.keyspaces;
+
+SELECT * FROM testLibrary." + BOOKS
+
+
+
+
+--------------------------------------
