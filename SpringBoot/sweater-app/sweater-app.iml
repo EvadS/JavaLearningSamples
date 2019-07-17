@@ -56,5 +56,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-mustache:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.samskivert:jmustache:1.14" level="project" />
+    <orderEntry type="library" name="Maven: com.github.seancfoley:ipaddress:5.0.2" level="project" />
   </component>
 </module>
