@@ -1,4 +1,5 @@
 package com.se.sample.enums;
 
-public enum Answers {
+enum Answers {
+    NO, YES, МАУВЕ, LATER, SOON, NEVER
 }
