@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/email-service/email-service.iml" filepath="$PROJECT_DIR$/email-service/email-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-microservices.iml" filepath="$PROJECT_DIR$/spring-microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-service/web-service.iml" filepath="$PROJECT_DIR$/web-service/web-service.iml" />
+    </modules>
+  </component>
+</project>
