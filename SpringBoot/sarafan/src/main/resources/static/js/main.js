@@ -4,6 +4,7 @@ import App from 'pages/App.vue'
 import { connect } from './util/ws'
 
 connect()
+
 Vue.use(VueResource)
 
 new Vue({

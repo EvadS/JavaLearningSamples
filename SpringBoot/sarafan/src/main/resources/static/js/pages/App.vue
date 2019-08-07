@@ -24,7 +24,8 @@
                 messages: frontendData.messages,
                 profile: frontendData.profile
             }
-        },created() {
+        },
+        created() {
             addHandler(data => {
                 let index = getIndex(this.messages, data.id)
                 if (index > -1) {
@@ -37,4 +38,6 @@
     }
 </script>
 
+<style>
 
+</style>
