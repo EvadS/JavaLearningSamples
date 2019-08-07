@@ -8,11 +8,10 @@ import javax.validation.constraints.Size;
  * Created by rajeevkumarsingh on 21/11/17.
  */
 @Entity
-@Table(name = "posts")
-public class Post extends AuditModel {
+@Table(name = "node_address")
+public class NodeAddress extends AuditModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @NotNull
     @Size(max = 100)
@@ -27,11 +26,11 @@ public class Post extends AuditModel {
     @Lob
     private String content;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

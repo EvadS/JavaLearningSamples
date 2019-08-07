@@ -1,8 +1,8 @@
 package com.example.jpa.controller;
 
 import com.example.jpa.exception.ResourceNotFoundException;
-import com.example.jpa.model.Post;
-import com.example.jpa.repository.PostRepository;
+import com.example.jpa.model.NodeAddress;
+import com.example.jpa.repository.NodeAddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,33 +15,33 @@ import javax.validation.Valid;
 public class PostController {
 
     @Autowired
-    private PostRepository postRepository;
+    private NodeAddressRepository nodeAddressRepository;
 
     @GetMapping("/posts")
-    public Page<Post> getAllPosts(Pageable pageable) {
-        return postRepository.findAll(pageable);
+    public Page<NodeAddress> getAllPosts(Pageable pageable) {
+        return nodeAddressRepository.findAll(pageable);
     }
 
     @PostMapping("/posts")
-    public Post createPost(@Valid @RequestBody Post post) {
-        return postRepository.save(post);
+    public NodeAddress createPost(@Valid @RequestBody NodeAddress nodeAddress) {
+        return nodeAddressRepository.save(nodeAddress);
     }
 
     @PutMapping("/posts/{postId}")
-    public Post updatePost(@PathVariable Long postId, @Valid @RequestBody Post postRequest) {
-        return postRepository.findById(postId).map(post -> {
-            post.setTitle(postRequest.getTitle());
-            post.setDescription(postRequest.getDescription());
-            post.setContent(postRequest.getContent());
-            return postRepository.save(post);
+    public NodeAddress updatePost(@PathVariable Long postId, @Valid @RequestBody NodeAddress nodeAddressRequest) {
+        return nodeAddressRepository.findById(postId).map(nodeAddress -> {
+            nodeAddress.setTitle(nodeAddressRequest.getTitle());
+            nodeAddress.setDescription(nodeAddressRequest.getDescription());
+            nodeAddress.setContent(nodeAddressRequest.getContent());
+            return nodeAddressRepository.save(nodeAddress);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
 
 
     @DeleteMapping("/posts/{postId}")
     public ResponseEntity<?> deletePost(@PathVariable Long postId) {
-        return postRepository.findById(postId).map(post -> {
-            postRepository.delete(post);
+        return nodeAddressRepository.findById(postId).map(nodeAddress -> {
+            nodeAddressRepository.delete(nodeAddress);
             return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }

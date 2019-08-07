@@ -12,8 +12,8 @@ import org.hibernate.annotations.OnDeleteAction;
  * Created by rajeevkumarsingh on 21/11/17.
  */
 @Entity
-@Table(name = "comments")
-public class Comment extends AuditModel {
+@Table(name = "miner_address")
+public class MinerAddress extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,12 +23,11 @@ public class Comment extends AuditModel {
     private String text;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "post_id", nullable = false)
+    @JoinColumn(name = "node_address_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
     @JsonIdentityReference(alwaysAsId=true)
-    @JsonProperty("post_id")
-    private Post post;
+    private NodeAddress nodeAddress;
 
     public Long getId() {
         return id;
@@ -46,11 +45,11 @@ public class Comment extends AuditModel {
         this.text = text;
     }
 
-    public Post getPost() {
-        return post;
+    public NodeAddress getNodeAddress() {
+        return nodeAddress;
     }
 
-    public void setPost(Post post) {
-        this.post = post;
+    public void setNodeAddress(NodeAddress nodeAddress) {
+        this.nodeAddress = nodeAddress;
     }
 }
