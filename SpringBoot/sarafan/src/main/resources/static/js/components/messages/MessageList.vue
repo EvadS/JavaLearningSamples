@@ -13,6 +13,7 @@
 <script>
     import MessageRow from 'components/messages/MessageRow.vue'
     import MessageForm from 'components/messages/MessageForm.vue'
+
     export default {
         props: ['messages'],
         components: {
@@ -40,4 +41,5 @@
 </script>
 
 <style>
+
 </style>
