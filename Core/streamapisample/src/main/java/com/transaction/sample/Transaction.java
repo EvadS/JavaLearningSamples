@@ -16,4 +16,10 @@ public class Transaction {
     public String getVrs() {
         return vrs;
     }
+
+    @Override
+    public String toString() {
+
+        return  String.format("Trans : %s vrs : %s", unsignedTransaction.toString(),vrs);
+    }
 }

@@ -8,6 +8,10 @@ public class App
 {
     public static void main( String[] args )
     {
+
+        StringHelper.toBase64AndBack();
+
+
         FSample.test1();
         System.out.println("-------------------------------");
         FSample.test2();

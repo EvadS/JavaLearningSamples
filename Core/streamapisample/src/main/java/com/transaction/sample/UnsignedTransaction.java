@@ -7,6 +7,7 @@ public class UnsignedTransaction {
     private long created;
     private long timeOut;
     private BigInteger number;
+    private BigInteger commission;
 
     /**
      *
@@ -14,10 +15,11 @@ public class UnsignedTransaction {
      * @param timeOut
      * @param number
      */
-    public UnsignedTransaction(long created, long timeOut, BigInteger number) {
+    public UnsignedTransaction(long created, long timeOut, BigInteger number,BigInteger commission) {
         this.created = created;
         this.timeOut = timeOut;
         this.number = number;
+        this.commission  = commission;
     }
 
     public long getCreated() {
@@ -42,5 +44,21 @@ public class UnsignedTransaction {
 
     public void setNumber(BigInteger number) {
         this.number = number;
+    }
+
+    public BigInteger getCommission() {
+        return commission;
+    }
+
+    public void setCommission(BigInteger commission) {
+        this.commission = commission;
+    }
+
+    @Override
+    public String toString() {
+        return    "created=" + created +
+                ", timeOut=" + timeOut +
+                ", number=" + number +
+                ", commission=" + commission ;
     }
 }

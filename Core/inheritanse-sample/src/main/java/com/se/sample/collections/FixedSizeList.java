@@ -1,71 +1,57 @@
 package com.se.sample.collections;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public class FixedList<E> implements Collection<E> {
-    @Override
-    public int size() {
-        return 0;
+public class FixedSizeList<T>  {
+    private ArrayList<T> list = new ArrayList<>();
+    protected static final int DEFAULT_MAX_SIZE = 100;
+    private int limit;
+
+    public FixedSizeList() {
+
+        this(DEFAULT_MAX_SIZE);
     }
 
-    @Override
-    public boolean isEmpty() {
-        return false;
+    public FixedSizeList(int limit) {
+        this.limit = this.limit < 1 ? DEFAULT_MAX_SIZE : limit;
     }
 
-    @Override
-    public boolean contains(Object o) {
-        return false;
+    public FixedSizeList(CopyOnWriteArrayList<T> transactionPoolElements) {
+        this(transactionPoolElements.size());
+
+        for (T item : transactionPoolElements) {
+            this.add(item);
+        }
     }
 
-    @Override
-    public Iterator<E> iterator() {
-        return null;
+    public boolean add(T element) {
+        assertMaxSizeNotReached(1);
+        return super.add(element);
     }
 
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
+
+    public void add(int index, T element) {
+        assertMaxSizeNotReached(1);
+        list.add(index, element);
     }
 
-    @Override
-    public <T> T[] toArray(T[] ts) {
-        return null;
+
+    public boolean addAll(Collection<? extends T> collection) {
+        assertMaxSizeNotReached(collection.size());
+        return list.addAll(collection);
     }
 
-    @Override
-    public boolean add(E e) {
-        return false;
+
+    public boolean addAll(int index, Collection<? extends T> elements) {
+        assertMaxSizeNotReached(elements.size());
+        return list.addAll(index, elements);
     }
 
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> collection) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends E> collection) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> collection) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> collection) {
-        return false;
-    }
-
-    @Override
-    public void clear() {
-
+    private void assertMaxSizeNotReached(int size) {
+        if (this.list.size() + size >= limit) {
+            throw new RuntimeException("size max reached");
+        }
     }
 }
