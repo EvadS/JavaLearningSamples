@@ -45,7 +45,7 @@ public class MinerAddressController {
         }
 
         return commentRepository.findById(commentId).map(minerAddress -> {
-            minerAddress.setText(minerAddressRequest.getText());
+            minerAddress.setVrs(minerAddressRequest.getVrs());
             return commentRepository.save(minerAddress);
         }).orElseThrow(() -> new ResourceNotFoundException("CommentId " + commentId + "not found"));
     }

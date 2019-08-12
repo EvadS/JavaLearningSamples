@@ -19,14 +19,13 @@ public class MinerAddress extends AuditModel {
     private Long id;
 
     @NotNull
-    @Lob
-    private String text;
+    private String address;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "node_address_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-    @JsonIdentityReference(alwaysAsId=true)
+    @NotNull
+    private String vrs;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "node_address_id", nullable = true)
     private NodeAddress nodeAddress;
 
     public Long getId() {
@@ -37,12 +36,20 @@ public class MinerAddress extends AuditModel {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getAddress() {
+        return address;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getVrs() {
+        return vrs;
+    }
+
+    public void setVrs(String vrs) {
+        this.vrs = vrs;
     }
 
     public NodeAddress getNodeAddress() {
