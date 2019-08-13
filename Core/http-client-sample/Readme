@@ -1,0 +1,8 @@
+start to use Google’s HTTP client library
+
+jar -tf  myJar.jar
+
+mvn install -DskipTests
+
+разобраться с асинхронностью
+https://github.com/eugenp/tutorials/blob/master/libraries-http/src/test/java/com/baeldung/asynchttpclient/AsyncHttpClientLiveTest.java
