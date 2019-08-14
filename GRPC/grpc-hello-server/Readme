@@ -1,0 +1,12 @@
+
+Generate the Stubs
+When you build the application, the plugin will convert the proto definitions into Java code.
+
+$ mvn -DskipTests package
+To see the generated files:
+
+$ find target/generated-sources
+
+
+
+mvn -DskipTests package exec:java -Dexec.mainClass=com.example.grpc.App
