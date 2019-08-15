@@ -2,34 +2,40 @@ package com.example.grpc;
 
 
 import io.grpc.*;
+import io.grpc.stub.StreamObserver;
 
 public class Client
 {
     public static void main( String[] args ) throws Exception
     {
-        // Channel is the abstraction to connect to a service endpoint
-        // Let's use plaintext communication because we don't have certs
         final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8080")
                 .usePlaintext(true)
                 .build();
 
-        // It is up to the client to determine whether to block the call
-        // Here we create a blocking stub, but an async stub,
-        // or an async stub with Future are always possible.
-        GreetingServiceGrpc.GreetingServiceBlockingStub stub = GreetingServiceGrpc.newBlockingStub(channel);
+        // Replace the previous synchronous code with asynchronous code.
+        // This time use an async stub:
+        GreetingServiceGrpc.GreetingServiceStub stub = GreetingServiceGrpc.newStub(channel);
+
+        // Construct a request
         GreetingServiceOuterClass.HelloRequest request =
                 GreetingServiceOuterClass.HelloRequest.newBuilder()
                         .setName("Ray")
                         .build();
 
-        // Finally, make the call using the stub
-        GreetingServiceOuterClass.HelloResponse response =
-                stub.greeting(request);
-
-        System.out.println(response);
-
-        // A Channel should be shutdown before stopping the process.
-        channel.shutdownNow();
+        // Make an Asynchronous call. Listen to responses w/ StreamObserver
+        stub.greeting(request, new StreamObserver<GreetingServiceOuterClass.HelloResponse>() {
+            public void onNext(GreetingServiceOuterClass.HelloResponse response) {
+                System.out.println(response);
+            }
+            public void onError(Throwable t) {
+            }
+            public void onCompleted() {
+                // Typically you'll shutdown the channel somewhere else.
+                // But for the purpose of the lab, we are only making a single
+                // request. We'll shutdown as soon as this request is done.
+                channel.shutdownNow();
+            }
+        });
     }
 }
 

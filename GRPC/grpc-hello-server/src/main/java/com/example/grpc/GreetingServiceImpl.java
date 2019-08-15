@@ -15,7 +15,9 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
                 .setGreeting("Hello there, " + request.getName())
                 .build();
 
-        // Use responseObserver to send a single response back
+        // Feel free to construct different responses if you'd like.
+        responseObserver.onNext(response);
+        responseObserver.onNext(response);
         responseObserver.onNext(response);
 
         // When you are done, you must call onCompleted.
