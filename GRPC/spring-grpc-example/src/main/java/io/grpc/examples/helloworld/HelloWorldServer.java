@@ -10,13 +10,14 @@ import java.util.logging.Logger;
 
 public class HelloWorldServer {
 
+
     private static final Logger logger = Logger.getLogger(HelloWorldServer.class.getName());
 
     private Server server;
 
     private void start() throws IOException {
         /* The port on which the server should run */
-        int port = 50051;
+        int port = 10000;
         server = ServerBuilder.forPort(port)
                 .addService(new GreeterImpl())
                 .build()
@@ -50,7 +51,7 @@ public class HelloWorldServer {
         }
     }
 
- //   @GRpcService(GreeterGrpc.class) //grpcServiceOuterClass = GreeterGrpc.class)
+
     @GRpcService
     static class GreeterImpl extends GreeterGrpc.GreeterImplBase {
 
@@ -58,6 +59,7 @@ public class HelloWorldServer {
         public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
 
             HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
+            System.out.println("== >  Message : " + req.getName());
             responseObserver.onNext(reply);
             responseObserver.onCompleted();
         }
