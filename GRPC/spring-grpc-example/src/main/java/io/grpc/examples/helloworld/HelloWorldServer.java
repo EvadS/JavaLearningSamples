@@ -4,6 +4,7 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -20,6 +21,10 @@ public class HelloWorldServer {
         int port = 10000;
         server = ServerBuilder.forPort(port)
                 .addService(new GreeterImpl())
+                .useTransportSecurity(
+                        getFile("/my-public-key-cert.pem"), //public Key
+                        getFile("/my-private-key.pem")) // private key
+
                 .build()
                 .start();
 
@@ -74,5 +79,9 @@ public class HelloWorldServer {
 
         server.start();
         server.blockUntilShutdown();
+    }
+
+    private static File getFile(final String fileName) {
+        return new File(HelloWorldServer.class.getResource(fileName).getFile());
     }
 }
