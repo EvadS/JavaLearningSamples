@@ -6,6 +6,15 @@ package com.se.sample;
 public class App {
     public static void main(String[] args) {
 
+
+        BasicDirection  east  = BasicDirection.EAST;
+        BasicDirection  west  = BasicDirection.WEST;
+
+        west.showDirection();
+        east.showDirection();
+        System.out.println("-----------------------------------------");
+
+
         Currency usCoin = Currency.DIME;
 
         switch (usCoin) {
