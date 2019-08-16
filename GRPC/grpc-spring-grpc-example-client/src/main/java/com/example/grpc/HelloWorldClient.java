@@ -33,6 +33,8 @@ public class HelloWorldClient {
                 // needing certificates.
                 .usePlaintext(true)
                 .build());
+
+
     }
 
     /** Construct client for accessing HelloWorld server using the existing channel. */
@@ -67,6 +69,8 @@ public class HelloWorldClient {
      */
     public static void main(String[] args) throws Exception {
         HelloWorldClient client = new HelloWorldClient("localhost", 10000);
+
+
         try {
             /* Access a service running on the local machine on port 50051 */
             String user = "world";
