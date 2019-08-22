@@ -4,6 +4,9 @@ mvn compile
 
 mvn exec:java -Dexec.mainClass="com.se.sample.App"
 
+скомпилировать проект
+положить jar - ник в ./lib - корень проекта 
+
 
 mvn \
 deploy:deploy-file \
