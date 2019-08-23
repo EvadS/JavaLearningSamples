@@ -3,6 +3,8 @@ package com.se.example.springsoapdemo;
 import com.soapbox.basenode.AppContainer;
 import com.soapbox.basenode.configuration.ConfigurationManager;
 import com.soapbox.basenode.crypto.CryptoController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,6 +14,8 @@ import com.soapbox.basenode.BaseNodeApplication;
 public class SpringSoapDemoApplication {
 
 
+    @Autowired
+    private  NodeAddressService addressService;
 
 
 //    private static void initBaseNode()  {
