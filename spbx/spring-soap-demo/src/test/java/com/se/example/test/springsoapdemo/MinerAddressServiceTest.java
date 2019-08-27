@@ -1,4 +1,4 @@
-package com.se.example.springsoapdemo;
+package com.se.example.test.springsoapdemo;
 
 import com.soapbox.basenode.crypto.CryptoController;
 import org.junit.Before;
@@ -16,8 +16,10 @@ public class MinerAddressServiceTest {
     @Autowired
     private CryptoController cryptoController;
 
+
     @Autowired
-    private  NodeAddressService addressService;
+    private NodeAddressServiceImpl nodeAddressServiceImpl;
+
 
     @Before
     public  void init(){

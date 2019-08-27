@@ -1,4 +1,4 @@
-package com.se.example.springsoapdemo;
+package com.se.example.test.springsoapdemo;
 
 import com.soapbox.basenode.AppContainer;
 import org.springframework.context.annotation.Bean;
@@ -11,4 +11,10 @@ public class AppContainerConfig {
     public AppContainer appContainer() {
         return new AppContainer();
     }
-}
+
+    @Bean
+    public NodeAddressServiceImpl nodeAddressService() {
+        return new NodeAddressServiceImpl();
+    }
+
+   }

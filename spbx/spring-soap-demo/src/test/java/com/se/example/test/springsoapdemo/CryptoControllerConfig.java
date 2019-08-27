@@ -1,4 +1,4 @@
-package com.se.example.springsoapdemo;
+package com.se.example.test.springsoapdemo;
 
 
 import com.soapbox.basenode.crypto.CryptoController;

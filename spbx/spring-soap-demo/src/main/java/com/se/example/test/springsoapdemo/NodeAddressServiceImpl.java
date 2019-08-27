@@ -1,4 +1,4 @@
-package com.se.example.springsoapdemo;
+package com.se.example.test.springsoapdemo;
 
 import com.soapbox.basenode.crypto.CryptoController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,8 @@ public class NodeAddressServiceImpl implements NodeAddressService {
 
     @Autowired
     private CryptoController cryptoController;
+
+
 
     @Override
     public void test() {
