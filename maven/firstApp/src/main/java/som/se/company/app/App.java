@@ -10,19 +10,26 @@ public class App
     {
         System.out.println( "IOU FLOW to Json ");
 
+        System.getenv().forEach((k, v) -> {
+            System.out.println(k + ":" + v);
+        });
 
-        Car car = new Car("model1 ", 1.0, 20.0, "reference number");
+        System.out.println("--------------------------------------------------------");
+        System.out.println("my var :  " + System.getenv().get("DB_HOST")  );
 
-        String a = "O=PartyA,L=London,C=GB";
-        String b = "O=PartyB,L=New York,C=US";
-
-
-        CarState  carState = new CarState(car,a,  b);
-        IOUFlow flow = new IOUFlow(carState, b);
-
-        String json = GJSONSemple.ConvertFlowToJson(flow);
+//
+//        Car car = new Car("model1 ", 1.0, 20.0, "reference number");
+//
+//        String a = "O=PartyA,L=London,C=GB";
+//        String b = "O=PartyB,L=New York,C=US";
+//
+//
+//        CarState  carState = new CarState(car,a,  b);
+//        IOUFlow flow = new IOUFlow(carState, b);
+//
+//        String json = GJSONSemple.ConvertFlowToJson(flow);
 
         System.out.println("---------------");
-        System.out.println(json);
+        //System.out.println(json);
     }
 }

@@ -55,7 +55,9 @@
                         <manifest>
                             <mainClass>som.se.company.app.App</mainClass>
                         </manifest>
+
                     </archive>
+                    <finalName>app</finalName>
                 </configuration>
             </plugin>
 
