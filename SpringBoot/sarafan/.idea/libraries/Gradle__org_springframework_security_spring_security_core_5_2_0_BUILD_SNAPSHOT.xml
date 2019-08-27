@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.security:spring-security-core:5.2.0.BUILD-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.2.0.BUILD-SNAPSHOT/e623b35bf9728cfe8f14e58e2d3b33d6ca35ebbc/spring-security-core-5.2.0.BUILD-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.2.0.BUILD-SNAPSHOT/7c401ca9a73ec98b000137dbda28f24a52f71ad9/spring-security-core-5.2.0.BUILD-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.2.0.BUILD-SNAPSHOT/53827556f7483fbcb629c6699dcb40f99af1d102/spring-security-core-5.2.0.BUILD-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.2.0.BUILD-SNAPSHOT/edc312ad77ec7e8624060f626386d4e042ce1f77/spring-security-core-5.2.0.BUILD-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

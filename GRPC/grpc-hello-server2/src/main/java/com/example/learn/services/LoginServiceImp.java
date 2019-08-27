@@ -2,6 +2,7 @@ package com.example.learn.services;
 import com.example.learn.LoginRequest;
 import com.example.learn.LoginResponse;
 import com.example.learn.LoginServiceGrpc;
+import com.example.learn.services.daos.UserRecord;
 import io.grpc.stub.StreamObserver;
 
 public class LoginServiceImp extends LoginServiceGrpc.LoginServiceImplBase {

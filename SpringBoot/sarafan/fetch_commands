@@ -1,5 +1,0 @@
-fetch('/message', {method: 'POST', headers: {'Content-Type': 'application/json'},body: JSON.stringify({'text':'Fourth message'})}).then(console.log)
-
-fetch('/message/4', {method: 'PUT', headers: {'Content-Type': 'application/json'},body: JSON.stringify({'text':'Fourth message edited', 'id':4})}).then(res => console.log(res))
-
-fetch('/message/5', {method: 'DELETE'}).then(res => console.log(res))

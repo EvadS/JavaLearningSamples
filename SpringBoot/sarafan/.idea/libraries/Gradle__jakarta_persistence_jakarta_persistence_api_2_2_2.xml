@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: jakarta.persistence:jakarta.persistence-api:2.2.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/jakarta.persistence/jakarta.persistence-api/2.2.2/998ee2b8206d2b5ab803c9e93588a5236e5839a9/jakarta.persistence-api-2.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/jakarta.persistence/jakarta.persistence-api/2.2.2/73daf2777be1bf7a4c546b7fffc60e6b131baf74/jakarta.persistence-api-2.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

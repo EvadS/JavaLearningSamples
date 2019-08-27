@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.data:spring-data-jpa:2.2.0.BUILD-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jpa/2.2.0.BUILD-SNAPSHOT/b7f0d6e71d485541bd369a1dc931c88ddb3f4181/spring-data-jpa-2.2.0.BUILD-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jpa/2.2.0.BUILD-SNAPSHOT/6803ceb6242282e923a87ea9576aa4249e8103f4/spring-data-jpa-2.2.0.BUILD-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jpa/2.2.0.BUILD-SNAPSHOT/407e6c680e0300db3c0c3606faafabcada8868e/spring-data-jpa-2.2.0.BUILD-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jpa/2.2.0.BUILD-SNAPSHOT/4134e3efa1d0a7e5b1b76a62a0e35ca585c671ca/spring-data-jpa-2.2.0.BUILD-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jpa/2.2.0.BUILD-SNAPSHOT/997ffa77b1247b2ac1c44ab63769aa0c0d683b3c/spring-data-jpa-2.2.0.BUILD-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
