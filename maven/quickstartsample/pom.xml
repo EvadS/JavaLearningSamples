@@ -110,7 +110,7 @@
         </plugin>
 
         <plugin>
-        <artifactId>maven-assembly-plugin sdf sd f</artifactId>
+        <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
             <id>default-cli</id>
