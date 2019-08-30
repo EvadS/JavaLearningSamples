@@ -1,5 +1,0 @@
-part of the docker toolbox. Use
-
-docker-machine create box.
-docker-machine env box.
-
