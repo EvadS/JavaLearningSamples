@@ -41,6 +41,7 @@ public class EmailJobSchedulerController {
 
             ScheduleEmailResponse scheduleEmailResponse = new ScheduleEmailResponse(true,
                     jobDetail.getKey().getName(), jobDetail.getKey().getGroup(), "Email Scheduled Successfully!");
+
             return ResponseEntity.ok(scheduleEmailResponse);
         } catch (SchedulerException ex) {
             logger.error("Error scheduling email", ex);

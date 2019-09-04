@@ -71,3 +71,38 @@ http://localhost:8080/scheduleEmail
 # Output
 {"success":true,"jobId":"0741eafc-0627-446f-9eaf-26f5d6b29ec2","jobGroup":"email-jobs","message":"Email Scheduled Successfully!"}
 ```
+
+
+**7 my sql install instruction**
+
+**3 How to change user 
+```bash
+$ sudo  mysql -u root
+```
+```bash
+SET PASSWORD FOR 'username'@'hostname' = PASSWORD('password');
+```
+------
+```bash
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('123456');
+```
+```bash
+sudo  mysql -u root -p
+```
+```bash
+UPDATE mysql.user SET Password=PASSWORD('123456') WHERE  USER='root' AND Host='localhost'
+```
+```bash
+sudo service mysql restart
+```
+check connection 
+```bash
+mysql -u root -p -h 127.0.0.1 -P 3306
+```
+IF ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+```bash
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+```
+
+
+
