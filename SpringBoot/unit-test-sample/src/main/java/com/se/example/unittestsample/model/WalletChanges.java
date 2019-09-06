@@ -4,12 +4,12 @@ import net.consensys.cava.bytes.Bytes;
 
 public class WalletChanges {
     private String walletAddress;
-    private net.consensys.cava.bytes.Bytes accountState;
+    private String accountState;
 
     public WalletChanges() {
     }
 
-    public WalletChanges(String walletAddress, Bytes accountState) {
+    public WalletChanges(String walletAddress, String accountState) {
         this.walletAddress = walletAddress;
         this.accountState = accountState;
     }
@@ -22,11 +22,11 @@ public class WalletChanges {
         this.walletAddress = walletAddress;
     }
 
-    public Bytes getAccountState() {
+    public String getAccountState() {
         return accountState;
     }
 
-    public void setAccountState(Bytes accountState) {
+    public void setAccountState(String accountState) {
         this.accountState = accountState;
     }
 }

@@ -35,8 +35,9 @@ import static com.rest.samples.Post_postForObject_Example.URL_CREATE_EMPLOYEE;
 public class IpAddressTest {
 
 
-   // private static final String URL_CREATE_NODE_INFO = "http://localhost:8086/address/registration";
-    private static final String URL_CREATE_NODE_INFO = "https://dev-soapbox-ip.scenario-projects.com/address/registration";
+   private static final String URL_CREATE_NODE_INFO = "http://localhost:8086/address/registration";
+    //private static final String URL_CREATE_NODE_INFO = "https://dev-soapbox-ip.scenario-projects.com/address/registration";
+    private static final String URL_GET_NODE_INFO = "https://dev-soapbox-ip.scenario-projects.com/address/node-address";
     private static Account account;
     private static final String REGION_ID_HEX_STRING = "11111189d66707f1";
     private static final String IP_ADDRESS = "127.0.90.111";
@@ -53,6 +54,8 @@ public class IpAddressTest {
         cryptoController.init();
         account = AccountHelper.getDefaultAccount();
     }
+
+
 
     @Test
     public void shouldCorrectResponse() throws Exception {
