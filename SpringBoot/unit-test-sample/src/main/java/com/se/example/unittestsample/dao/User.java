@@ -1,4 +1,4 @@
-package com.se.example.unittestsample.service;
+package com.se.example.unittestsample.dao;
 
 import java.util.Date;
 
@@ -53,4 +53,5 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
 }

@@ -1,0 +1,12 @@
+Home  >  Spring 5
+@TestPropertySource Example in Spring Test
+
+Now find the elements of @TestPropertySource annotation.
+locations: Specify test property file locations to be loaded for integration test.
+properties: Specify test inlined properties to be loaded for integration test.
+value: It is the alias for locations element.
+inheritLocations: Boolean value to decide if test property source locations should be inherited from superclasses or not.
+inheritProperties: Boolean value to decide if test inlined properties should be inherited from superclasses or not.
+
+in a russian
+демронстрация того как можно оперировать параметрами изи application properties

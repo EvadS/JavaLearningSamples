@@ -1,5 +1,8 @@
 package com.se.example.unittestsample.service;
 
+import com.se.example.unittestsample.dao.User;
+import com.se.example.unittestsample.dto.UserDto;
+import com.se.example.unittestsample.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

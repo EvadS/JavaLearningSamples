@@ -1,7 +1,7 @@
 package com.se.example.unittestsample;
 
-import com.se.example.unittestsample.service.User;
-import com.se.example.unittestsample.service.UserRepository;
+import com.se.example.unittestsample.dao.User;
+import com.se.example.unittestsample.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

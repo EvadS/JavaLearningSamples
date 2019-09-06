@@ -1,7 +1,7 @@
 package com.se.example.unittestsample.controller;
 
 
-import com.se.example.unittestsample.service.User;
+import com.se.example.unittestsample.dao.User;
 import com.se.example.unittestsample.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,0 +1,22 @@
+{
+  "name": "defaultAccount",
+  "address": "0xd8ded4c82db9b81992cb8d6f48413a36de392aaa",
+  "crypto": {
+    "cipher": "aes-128-ctr",
+    "ciphertext": "92023bbc0bb3bae1bc953a46dae29291fdd9970118b511fd0113d93d2e12c7291170bc51d513b458f17118c652ff02f6baa8f2d2ce0c90447305613b9003655c11c0efc731f6b74debac12af0a1228d35fa11ef09f4cec7f81b4ff8d8f13f370b66f67cef5ff3fa7e7350bc4bf05db1a4d081220fc1b4bc818c8ddf76da79a53a1e37e8bcb1d40ad4cde68f995da7f160569577d45e2dc14a8163ed6c52975c0",
+    "cipherparams": {
+      "iv": "4a35a7728c18c1a7e848eec4709f712a"
+    },
+    "kdf": "scrypt",
+    "kdfparams": {
+      "dklen": 32,
+      "n": 262144,
+      "p": 1,
+      "r": 8,
+      "salt": "860946be75ff55284c5af982bf5ca2fde905676ce407ced2c7240aa0ff7c752f"
+    },
+    "mac": "e30bc3d7653e2d585747b90bfcdc8a1c28f35b04cff5dc330eb07bd8ecf42215"
+  },
+  "id": "d07c2ccc-cd22-43a4-85f6-6b56cd9661e5",
+  "version": 1
+}

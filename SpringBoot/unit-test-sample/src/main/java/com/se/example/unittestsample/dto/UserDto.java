@@ -1,4 +1,4 @@
-package com.se.example.unittestsample.service;
+package com.se.example.unittestsample.dto;
 
 public class UserDto {
 

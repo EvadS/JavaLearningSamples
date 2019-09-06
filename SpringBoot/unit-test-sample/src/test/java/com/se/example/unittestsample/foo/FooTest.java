@@ -16,10 +16,14 @@ import static org.junit.Assert.assertEquals;
 @TestPropertySource(properties = {
         "some.bar.value=testValue",
 })
+
 public class FooTest {
 
     @Value("${some.bar.value}")
     String bar;
+
+//    @Value("${local.server.port}")   // 6
+//            int port;
 
     @Test
     public void testValueSetup() {
