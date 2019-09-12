@@ -1,0 +1,11 @@
+
+
+ docker build -t java-application .
+
+mvn plugin
+docker run -p 8080:9080 -t hello-howtodoinjava/hello-docker  --name hello-docker-image
+ http://192.168.99.100:8080/hello/sajal
+
+-----------------------------------------------------------------------------------------------
+to build:-  docker build -t test_dockereg_images2 .
+to run:–     docker run -p 8000:9081 -t test_dockereg_images2 –name hello-docker-image
