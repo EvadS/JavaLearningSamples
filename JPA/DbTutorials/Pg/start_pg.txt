@@ -1,0 +1,9 @@
+устанавливаем себе PostgreSQL. Далее создаём базу данных с юзером и паролем. Можно сделать это прямо из IDEA, во вкладке database, можно с помощью командной строки если у вас линукс, следующими командами:
+
+sudo -u postgres createuser <username>
+sudo -u postgres createdb <dbname>
+$ sudo -u postgres psql
+psql=# alter user <username> with encrypted password '<password>';
+psql=# grant all privileges on database <dbname> to <username> ;
+
+Также на windows это можно сделать с помощью pgAdmin или его альтернатив.
