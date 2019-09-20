@@ -34,8 +34,8 @@ As shown in the output, the root CA is stored under /home/amos/.local/share/mkce
 
 find the root CA path
 
-windows : mkcert-v1.4.0-windows-amd64.exe -CAROOT
-linux :   mkcert -CAROOT
+* windows : **mkcert-v1.4.0-windows-amd64.exe -CAROOT
+* linux :   ** mkcert -CAROOT
 
  -----------------
  Generate Local SSL Certificates
@@ -43,11 +43,11 @@ linux :   mkcert -CAROOT
  This creates a new file localhost+2.p12 in the current directory. The PKCS#12 bundle is secured with the password changeit.
 
  ---------------
-windows :
-mkcert-v1.4.0-windows-amd64.exe -pkcs12 localhost 127.0.0.1 ::1
+* windows :
+** mkcert-v1.4.0-windows-amd64.exe -pkcs12 localhost 127.0.0.1 ::1
 
-linux :
-mkcert -pkcs12 localhost 127.0.0.1 ::1
+* linux :
+** mkcert -pkcs12 localhost 127.0.0.1 ::1
 
 
 ---------------------------------------------------------------------------------------
