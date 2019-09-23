@@ -2,3 +2,9 @@
  -DartifactId=grpc-hello-server \
  -DarchetypeArtifactId=maven-archetype-quickstart \
  -DinteractiveMode=false
+ 
+ 
+  mvn archetype:generate -DgroupId=com.se.bonita \
+ -DartifactId=bonita-connector-debugging \
+ -DarchetypeArtifactId=maven-archetype-quickstart \
+ -DinteractiveMode=false
