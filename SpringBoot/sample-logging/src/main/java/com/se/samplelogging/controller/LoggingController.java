@@ -36,5 +36,12 @@ public class LoggingController {
     public void index2() {
         myService.doStuff("wwwwwwwwwwwwwwwwwwwww");
     }
+
+    @RequestMapping("/my2")
+    public void my2() {
+
+        logger.debug("DEBUG MESSAGE");
+        logger.info("info MESSAGE");
+    }
 }
 
