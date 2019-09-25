@@ -1,0 +1,10 @@
+
+
+JAVA_OPTS_EXT
+
+export  SPRING_PROFILES_ACTIVE=dev
+ echo $SPRING_PROFILES_ACTIVE
+
+
+
+ java -jar -Dspring.profiles.active=$spring_profiles_active app.jar

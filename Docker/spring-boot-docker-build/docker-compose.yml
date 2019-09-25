@@ -1,12 +1,11 @@
-version: '3'
-
+version: '2.2'
 services:
-  springboot-docker-compose-app-container:
-    image: springboot-docker-compose-app:1
+  hola:
     build:
       context: ./
       dockerfile: Dockerfile
-    volumes:
-      - /data/springboot-docker-compose-app
+    image: holaweb
     ports:
-      - "8081:10001"
+      - 10001:10001
+    environment:
+        - SPRING_PROFILES_ACTIVE= SPRING_PROFILES_ACTIVE_CONTAINER
