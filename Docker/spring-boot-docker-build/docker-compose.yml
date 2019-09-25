@@ -10,19 +10,3 @@ services:
       - /data/springboot-docker-compose-app
     ports:
       - "8081:10001"
-
-version: '3'
-services:
-  postgres:
-    build: postgres/
-    volumes:
-      - db-data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - "15432:5432"
-  app:
-    build: app/
-    ports:
-      - "10000:10000"
-volumes:
