@@ -1,0 +1,9 @@
+version: '2'
+services:
+  app:
+    image: demo-ses-env:latest
+    build: .
+    container_name: demo-ses-env
+    restart: always
+    ports:
+    - 8080

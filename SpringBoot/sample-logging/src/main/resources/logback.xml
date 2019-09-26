@@ -125,16 +125,16 @@
         <appender-ref ref="SAVE-TO-FILE"/>
     </logger>
 
-    <springProfile name="dev">
-        <root level="info">
-            <appender-ref ref="STDOUT"/>
-            <appender-ref ref="SAVE-TO-FILE"/>
-        </root>
-        <logger name="com.se.samplelogging.controller.MainController" additivity="false" level="debug">
-            <appender-ref ref="STDOUT"/>
-            <appender-ref ref="SAVE-TO-FILE"/>
-        </logger>
-    </springProfile>
+    <!--<springProfile name="dev">-->
+        <!--<root level="info">-->
+            <!--<appender-ref ref="STDOUT"/>-->
+            <!--<appender-ref ref="SAVE-TO-FILE"/>-->
+        <!--</root>-->
+        <!--<logger name="com.se.samplelogging.controller.MainController" additivity="false" level="debug">-->
+            <!--<appender-ref ref="STDOUT"/>-->
+            <!--<appender-ref ref="SAVE-TO-FILE"/>-->
+        <!--</logger>-->
+    <!--</springProfile>-->
 
 
 
