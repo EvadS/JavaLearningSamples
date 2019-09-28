@@ -17,7 +17,6 @@ public class HomeController {
     @Value("#{systemEnvironment['My_JAVA_OPTS']}")
     private String host;
 
-
     // work
     @Value("${java.home}")
     private String javaHome;
@@ -33,6 +32,9 @@ public class HomeController {
     @Value("#{systemEnvironment['JAVA_HOME']}")
     private String javaHome4;
 
+    @Value("#{systemEnvironment['java.home']}")
+    private String javaHome5;
+
 
     @Value("#{ systemProperties['user.language'] }")
     private String varOne;
@@ -43,7 +45,11 @@ public class HomeController {
 
     @RequestMapping("/")
     public String get() {
-        System.out.println("varOne  " + varOne);
+
+        String port = environment.getProperty("local.server.port");
+
+        System.out.println("port  " + port);
+
         System.out.println("path  " + user);
         System.out.println("javaHome2  " + javaHome2);
         System.out.println("javaHome3  " + javaHome3);

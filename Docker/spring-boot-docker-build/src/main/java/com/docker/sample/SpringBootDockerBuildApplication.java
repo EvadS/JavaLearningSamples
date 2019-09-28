@@ -7,17 +7,6 @@ import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 public class SpringBootDockerBuildApplication {
-
-
-
-//    public static void main(String[] args) {
-//        System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "prod");
-//        SpringApplication sa = new SpringApplication(ExampleMain.class);
-//        sa.setAdditionalProfiles("remote","live");
-//        sa.run(args);
-//    }
-
-
     public static void main(String[] args) {
         String javaHome = System.getenv("RW_DEV");
         System.out.println("env ->" + javaHome);

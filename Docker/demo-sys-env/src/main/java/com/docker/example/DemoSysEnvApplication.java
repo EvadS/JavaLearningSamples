@@ -15,7 +15,12 @@ import org.springframework.core.env.Environment;
 @SpringBootApplication
 public class DemoSysEnvApplication  {
 
+
     public static void main(String[] args) {
+
+
+
+
         SpringApplication.run(DemoSysEnvApplication.class, args);
     }
     private static final Logger logger = LoggerFactory.getLogger(DemoSysEnvApplication.class);
