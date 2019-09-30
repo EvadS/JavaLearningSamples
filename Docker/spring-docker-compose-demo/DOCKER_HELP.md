@@ -6,6 +6,10 @@
 создаем image c именем my_fdocker_img 
 точка в конце означает что мы хотим взять докер файл из текущей директории
 ``` docker build -t my_fdocker_img . ```
+** 
+``` Dockerfile.mvn_alpine ```
+**
+``` docker build -t my_fdocker_img -f Dockerfile.mvn . ```
 
 посписок текущих имеджей можем просмотреть
 
@@ -15,12 +19,16 @@
 слева порт во внешний мир справа внутренний порт 
 
 ``` docker run -p 9009:9000 -t my_fdocker_img ```
+
+для дебага 
+
+``` docker run -p 9009:9000 -t my_fdocker_img ```
 ### c указанием профиля
 
 ``` docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 9005:9000 -t my_fdocker_img ```
 
 
-запустить баш консоль в контейнере(не получится если сервис рестартится )
+запустить баш консоль в РАБОЧЕМ контейнере(не получится если сервис рестартится )
  docker exec -it  [имя контейнера] sh 
 
  пример 
