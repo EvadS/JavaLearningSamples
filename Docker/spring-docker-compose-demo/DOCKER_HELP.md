@@ -14,8 +14,8 @@
 после того как имадж создан можем запусить его в контейнере 
 слева порт во внешний мир справа внутренний порт 
 
-``` docker run -p 9005:9000 -t my_fdocker_img ```
-### c указанием профиля 
+``` docker run -p 9009:9000 -t my_fdocker_img ```
+### c указанием профиля
 
 ``` docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 9005:9000 -t my_fdocker_img ```
 
@@ -25,7 +25,7 @@
 
  пример 
 
- docker exec -it   quizzical_robinson sh
+ docker exec -it   flamboyant_engelbart  sh
  
 
 

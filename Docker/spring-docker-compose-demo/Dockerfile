@@ -9,14 +9,12 @@ VOLUME /tmp
 
 VOLUME /home/server
 COPY   . / /home/server/
-#WORKDIR /home/server
+WORKDIR /home/server
+
+#чтобы обновить его время модификации (по умолчанию Docker создает все файлы-контейнеры в «неизмененном» состоянии)
+RUN sh -c 'touch app.jar'
 
 
-# The application's jar file
-ARG JAR_FILE=target/app.jar
-
-# Add the application's jar to the container
-ADD ${JAR_FILE} app.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/home/server/target/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","target/app.jar"]
