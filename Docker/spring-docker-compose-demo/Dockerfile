@@ -6,6 +6,12 @@ LABEL maintainer="se@gmail.com"
 # Add a volume pointing to /tmp
 VOLUME /tmp
 
+
+VOLUME /home/server
+COPY   . / /home/server/
+#WORKDIR /home/server
+
+
 # The application's jar file
 ARG JAR_FILE=target/app.jar
 
@@ -13,4 +19,4 @@ ARG JAR_FILE=target/app.jar
 ADD ${JAR_FILE} app.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/home/server/target/app.jar"]
