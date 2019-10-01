@@ -1,4 +1,4 @@
-package com.docker.example.springpostgressample;
+package com.docker.example.springpostgressample.entity;
 
 
 import javax.persistence.Entity;
