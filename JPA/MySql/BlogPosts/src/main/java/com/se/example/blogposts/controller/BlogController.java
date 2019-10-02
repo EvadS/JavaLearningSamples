@@ -22,7 +22,7 @@ public class BlogController {
 
     @GetMapping("/blog")
     public List<Blog> index() {
-        logger.info("");
+       // logger.info("find all");
         return blogRespository.findAll();
     }
 
@@ -44,7 +44,12 @@ public class BlogController {
     public Blog create(@RequestBody Map<String, String> body) {
         String title = body.get("title");
         String content = body.get("content");
-        return blogRespository.save(new Blog(title, content));
+        Blog blog = new Blog(title, content);
+
+        logger.warn("A WARN Message----------------");
+        logger.debug("try to create new blog " + blog.toString() );
+
+        return blogRespository.save(blog);
     }
 
     @PutMapping("/blog/{id}")

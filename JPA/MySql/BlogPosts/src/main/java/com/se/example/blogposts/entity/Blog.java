@@ -3,13 +3,17 @@ package com.se.example.blogposts.entity;
 
 import io.swagger.annotations.ApiModel;
 
+import org.slf4j.LoggerFactory;
+
 import javax.persistence.*;
 
 @Entity
 @ApiModel(description = "All details about the Blog. ")
 public class Blog {
+
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name="title")
