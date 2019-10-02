@@ -2,6 +2,7 @@ package com.se.example.blogposts.controller;
 
 
 import com.se.example.blogposts.entity.Blog;
+import com.se.example.blogposts.models.BlogModel;
 import com.se.example.blogposts.repository.BlogRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +27,8 @@ public class BlogController {
        // logger.info("find all");
         return blogRespository.findAll();
     }
+
+
 
     @GetMapping("/blog/{id}")
     public Blog show(@PathVariable String id) {
@@ -45,6 +49,16 @@ public class BlogController {
         String title = body.get("title");
         String content = body.get("content");
         Blog blog = new Blog(title, content);
+
+        logger.warn("A WARN Message----------------");
+        logger.debug("try to create new blog " + blog.toString() );
+
+        return blogRespository.save(blog);
+    }
+
+    @PostMapping("/create")
+    public Blog createBlog(@RequestBody @Valid BlogModel body) {
+         Blog blog = body.toEntity();
 
         logger.warn("A WARN Message----------------");
         logger.debug("try to create new blog " + blog.toString() );

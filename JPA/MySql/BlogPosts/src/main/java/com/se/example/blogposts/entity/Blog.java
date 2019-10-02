@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Blog")
 @ApiModel(description = "All details about the Blog. ")
 public class Blog {
 
