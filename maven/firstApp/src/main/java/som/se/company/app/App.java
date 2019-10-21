@@ -1,5 +1,7 @@
 package som.se.company.app;
 
+import java.util.Map;
+
 /**
  * Hello world!
  *
@@ -17,6 +19,31 @@ public class App
         System.out.println("--------------------------------------------------------");
         System.out.println("my var :  " + System.getenv().get("DB_HOST")  );
 
+
+        // gets the value of the specified environment variable "PATH"
+        System.out.println("System.getenv("+"PATH"+") = ");
+
+        String myVar  = System.getenv("MY_VAR");
+        System.out.println("myVar : "+ myVar);
+        System.out.println("================================");
+        String myVar2  = System.getenv("MY_VAR2");
+        System.out.println("myVar2 : "+ myVar2);
+
+        System.out.println("---------------------------------------");
+        String sysEnvStr = System.getenv("SOAPBOX_ENV");
+        System.out.println("SOAPBOX_ENV: " + sysEnvStr);
+        System.out.println("---------------------------------------");
+
+
+        System.out.println("---------------------------------------");
+         sysEnvStr = System.getenv("MY_PROFILE");
+        System.out.println("MY_PROFILE: " + sysEnvStr);
+        System.out.println("---------------------------------------");
+
+
+
+
+
 //
 //        Car car = new Car("model1 ", 1.0, 20.0, "reference number");
 //
@@ -31,5 +58,18 @@ public class App
 
         System.out.println("---------------");
         //System.out.println(json);
+    }
+
+    public static void getEnv() {
+
+        // Get the value of
+        // all environment variables at once
+        // and store it in Map
+        Map<String, String> env
+                = System.getenv();
+
+        for (String envName : env.keySet()) {
+            System.out.format("%s=%s%n",envName,env.get(envName));
+        }
     }
 }

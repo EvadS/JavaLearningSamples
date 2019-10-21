@@ -1,27 +1,20 @@
-version: '2'
+version: '3'
 services:
-  app:
-    image: app
-    build: .
-    container_name: soapbox-backend
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-    environment:
-# very important between SPRING_PROFILES_ACTIVE dev sign = not others
-      - SPRING_PROFILES_ACTIVE=dev
 
-  mysqlp-app:
-    image: "mysql"
-    container_name: my-library-mysql
+ mySql-db:
+    image: mysql:5.7
     restart: always
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./data:/var/lib/postgresql/data
     environment:
-      - MYSQL_ROOT_PASSWORD=masterkey
-      - MYSQL_USER=pg1user
-      - MYSQL_DATABASE=soapbox-postgres
-      - MYSQL_PASSWORD
+      MYSQL_DATABASE: book_manager
+      MYSQL_USER: evad
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 31323334
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '23306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - ./my-db:/var/lib/mysql

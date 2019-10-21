@@ -26,6 +26,7 @@ docker container rm -f $(docker ps -aq)
 docker logs -f <container_id>
 
 ## 4. Запуск контейнера 
+
 базовый вариант:
 docker run -it --name my-image-name alpine sh
 
@@ -50,4 +51,6 @@ docker commit
 
 * docker tag <image_name> <username>/<your repository on docker hub>
 * docker push <username>/<your repository on docker hub>
+
+docker build . -t spring-docker-01
 

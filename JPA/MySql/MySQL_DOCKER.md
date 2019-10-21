@@ -2,7 +2,9 @@ create and run an image of the MySQL database
 
 наша база буде крутится на порту 6033
 
-```docker run -d -p 6033:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=root" --env="MYSQL_PASSWORD=root" --env="MYSQL_DATABASE=book_manager" mysql```
+``` docker run -d -p 6033:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=root" --env="MYSQL_PASSWORD=root" --env="MYSQL_DATABASE=book_manager" mysql ```
+
+ docker run -d -p 6033:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=123456" --env="MYSQL_PASSWORD=31323334" --env="MYSQL_DATABASE=book_manager" --env="MYSQL_USER=evad" mysql
 -----------------------------------------------------------------------------
 проверяем 
 
