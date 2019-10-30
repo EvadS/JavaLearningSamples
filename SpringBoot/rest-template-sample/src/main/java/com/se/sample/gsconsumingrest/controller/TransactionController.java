@@ -1,6 +1,7 @@
 package com.se.sample.gsconsumingrest.controller;
 
 import com.se.sample.gsconsumingrest.exception.ResourceNotFoundException;
+import com.se.sample.gsconsumingrest.model.EmployeeList;
 import com.se.sample.gsconsumingrest.model.TransactionItemResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,6 +73,18 @@ public class TransactionController {
         return list;
     }
 
+    @GetMapping("/all-empl")
+    @ResponseBody
+    public List<Employee> allEmpl() {
+        return Arrays.asList(
+                new Employee(1,"fname","lName","email"),
+                new Employee(2,"fname2","lName2","email"),
+                new Employee(3,"fname3","lName3","email"),
+                new Employee(4,"fname4","lName4","email")
+        );
+    }
+
+
     @GetMapping(path = "/all-page")
     public Page<TransactionItemResponse> readPageable(@NotNull final Pageable pageable) {
         Page<TransactionItemResponse> response = getTransactionItemResponses();
@@ -121,6 +134,12 @@ public class TransactionController {
     @PostMapping(path="/create-list")
     @ResponseBody
     public List<TransactionItemResponse> generatePersonList(@RequestBody List<TransactionItemResponse> person){
+        return list;
+    }
+
+    @PostMapping(path="/create-list2")
+    @ResponseBody
+    public EmployeeList generatePersonList2(@RequestBody EmployeeList list){
         return list;
     }
 
@@ -274,6 +293,7 @@ public class TransactionController {
         //Generate resource id
         logger.info("add-empl " + employee.toString());
 
+        employee.setId(Integer.MAX_VALUE);
         //Send location in response
         return ResponseEntity.ok().body(employee);
     }
