@@ -7,11 +7,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -153,6 +160,54 @@ public class TransactionControllerClient {
         restTemplate.postForObject(
                 fooResourceUrl,
                 ress, TransactionItemResponse.class);
+
+        int a =0;
+    }
+
+    @GetMapping("/test7")
+    public void test7() throws URISyntaxException {
+        RestTemplate restTemplate = new RestTemplate();
+        String fooResourceUrl = buildUrl("/add-empl");
+        URI uri = new URI(fooResourceUrl);
+
+
+        Employee employee = new Employee(null, "Adam", "Gilly", "test@email.com");
+
+
+        HttpHeaders headers = new HttpHeaders();
+
+
+        HttpEntity<Employee> request = new HttpEntity<>(employee, headers);
+
+        ResponseEntity<String> result = restTemplate.postForEntity(uri, request, String.class);
+
+
+        //       ServletUriComponentsBuilder.fromContextPath()
+
+
+        int a =0;
+    }
+
+    @GetMapping("/test8")
+    public void test8() throws URISyntaxException {
+        RestTemplate restTemplate = new RestTemplate();
+        String fooResourceUrl = buildUrl("/add-empl2");
+        URI uri = new URI(fooResourceUrl);
+
+
+        Employee employee = new Employee(null, "Adam", "Gilly", "test@email.com");
+
+
+        HttpHeaders headers = new HttpHeaders();
+
+
+        HttpEntity<Employee> request = new HttpEntity<>(employee, headers);
+
+        ResponseEntity<String> result = restTemplate.postForEntity(uri, request, String.class);
+
+
+        //       ServletUriComponentsBuilder.fromContextPath()
+
 
         int a =0;
     }

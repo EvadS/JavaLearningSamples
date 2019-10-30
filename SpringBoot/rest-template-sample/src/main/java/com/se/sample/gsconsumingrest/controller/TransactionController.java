@@ -97,12 +97,12 @@ public class TransactionController {
     }
 
 
-
     // HOW TO CREATE
     @PostMapping("/create")
     public void createTransaction(@RequestBody TransactionItemResponse transaction) {
         list.add(transaction);
     }
+
 
     @PostMapping("/create2")
     public ResponseEntity<?> createTransaction2(@RequestBody TransactionItemResponse transaction) {
@@ -265,5 +265,30 @@ public class TransactionController {
 //    public boolean delete(Long id) {
 //        var isRemoved = this.posts.removeIf(post -> post.getId().equals(id));
 //    }
+
+
+    @PostMapping(path= "/add-empl", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<?> addEmployee(@RequestBody Employee employee)
+            throws Exception
+    {
+        //Generate resource id
+        logger.info("add-empl " + employee.toString());
+
+        //Send location in response
+        return ResponseEntity.ok().body(employee);
+    }
+
+
+    @PostMapping(path= "/add-empl2", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<?> addEmployee2(@RequestBody Employee employee)
+            throws Exception
+    {
+        //Generate resource id
+        logger.info("add-empl " + employee.toString());
+
+        throw new ResourceNotFoundException(employee.toString());
+
+
+    }
 
 }
