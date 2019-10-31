@@ -19,7 +19,9 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    //configure the IsbnEditor method with the following content:
+    /**
+     * configure the IsbnEditor method with the following content:
+     */
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Isbn.class, new IsbnEditor());

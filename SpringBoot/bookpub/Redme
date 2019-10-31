@@ -11,3 +11,11 @@
 
 1.https://learning.oreilly.com/library/view/spring-boot-20/9781787129825/74f0c71d-43ff-43d5-9c76-f5813c91a0e7.xhtml
 https://github.com/PacktPublishing/Spring-Boot-2.0-Cookbook-Second-Edition/tree/master/Chapter02/ch2/src/main/java/com/example/bookpub
+
+
+
+Работа с коммандной строки
+
+
+ DEBUG=true mvn clean package spring-boot:repackage
+ mvn spring-boot:run

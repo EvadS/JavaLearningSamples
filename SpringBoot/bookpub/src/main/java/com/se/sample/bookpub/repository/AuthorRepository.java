@@ -6,6 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
  // http://localhost:8080/authors
 @RepositoryRestResource
-public interface AuthorRepository extends
-        PagingAndSortingRepository<Author, Long> {
+public interface AuthorRepository extends PagingAndSortingRepository<Author, Long> {
 }
