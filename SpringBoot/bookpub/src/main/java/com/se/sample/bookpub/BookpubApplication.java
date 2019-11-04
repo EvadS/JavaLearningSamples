@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class BookpubApplication {
 
     public static void main(String[] args) {
-        System.setProperty("spring.config.name", "myapp1111111111111");
+
         SpringApplication.run(BookpubApplication.class, args);
     }
 
