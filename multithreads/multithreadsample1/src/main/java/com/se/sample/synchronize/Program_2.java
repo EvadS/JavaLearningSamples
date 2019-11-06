@@ -10,8 +10,10 @@ public class Program_2 {
     public static void main(String[] args) {
 
         Store store = new Store();
+
         Producer producer = new Producer(store);
         Consumer consumer = new Consumer(store);
+
         new Thread(producer).start();
         new Thread(consumer).start();
 
@@ -51,6 +53,7 @@ class Store {
         product++;
         System.out.println("Производитель добавил 1 товар");
         System.out.println("Товаров на складе: " + product);
+
         notify();
     }
 }
