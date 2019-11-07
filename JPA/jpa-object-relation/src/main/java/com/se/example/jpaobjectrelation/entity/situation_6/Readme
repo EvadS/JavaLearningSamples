@@ -1,0 +1,2 @@
+
+he parent entity has a composite primary key (IdClass) and the dependent entity uses the same class to represent a composite key (EmbeddedId).

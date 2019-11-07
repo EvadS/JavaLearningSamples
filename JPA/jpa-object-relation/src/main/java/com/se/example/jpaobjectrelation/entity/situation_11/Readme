@@ -1,0 +1,35 @@
+The parent entity has a composite primary key (EmbeddedId) and the dependent entity uses IdClass to represent a composite key.
+The source code shall look like this:
+
+@Embeddable
+public class EmployeeId {
+   String firstName;
+   String lastName;
+}
+
+@Entity
+public class Employee {
+   @EmbeddedId
+   EmployeeId Id;
+}
+
+public class DependentId {
+   String name; // matches name of @Id attribute
+   EmployeeId employee; // matches name of @Id attribute and type of embedded id of Employee
+}
+
+@Entity
+@IdClass(DependentId.class)
+public class Dependent {
+   @Id
+   String name;
+   @Id
+   @JoinColumns({
+      @JoinColumn(name="Employee_firstName", referencedColumnName="firstName"),
+      @JoinColumn(name="Employee_lastName", referencedColumnName="lastName")
+   })
+   @ManyToOne
+   Employee employee;
+}
+
+In the JPA editor it means that there shall be an embeddable EmployeeId with two attributes firstName and lastName, an entity Employee that issed this embeddable class as composite primary key (EmbeddedId) and an entity Dependent with composite primary key name. When the Many-to-One uni-directional relation feature is selected from the Derived Identifiers palette, the connection which will be created shall have as owner the Dependent entity and as target the Employee entity. During the creation of the connection it shall be checked if the Dependent entity has a composite primary key (IdClass) and if this IdClass contains an attribute of the same type as the type of the composite primary key of the Employee entity (the same type as the EmbeddedId class). If such an attribute does not exist it shall be added authomatically. When the new connection is created, a new attribute with the same name as the attribute in the IdClass shall be added in the Dependent entity, the columns of the parent entity shall be obtained and shall be automatically mapped with the JoinColumns annotation. The newly created attribute shall be mapped as primary key:
