@@ -1,4 +1,4 @@
-package com.se.sample.handling;
+package com.se.sample.configuration;
 
 
 import org.springframework.context.annotation.Bean;
@@ -19,7 +19,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.se.sample.handling.controller"))
+                        .basePackage("com.se.sample.controller"))
                 .paths(PathSelectors.regex("/.*"))
                 .build().apiInfo(apiEndPointsInfo());
     }

@@ -1,4 +1,4 @@
-package com.se.sample.handling.exception;
+package fn.service.core.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
