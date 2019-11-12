@@ -2,6 +2,7 @@ package com.se.sample.synshronized;
 
 public class ParkingStats {
 
+    private final Object controlCars, controlMotorcycles;
     private long numberCars;
     private long numberMotorcycles;
     private ParkingCash cash;
@@ -9,6 +10,11 @@ public class ParkingStats {
     public ParkingStats(ParkingCash cash) {
         numberCars = 0;
         numberMotorcycles = 0;
+
+        controlCars = new Object();
+        controlMotorcycles = new Object();
+
+
         this.cash = cash;
     }
 
@@ -29,20 +35,28 @@ public class ParkingStats {
     }
 
     public void carComeIn() {
-        numberCars++;
+        synchronized (controlCars) {
+            numberCars++;
+        }
     }
 
     public void carGoOut() {
-        numberCars--;
+        synchronized (controlCars) {
+            numberCars--;
+        }
         cash.vehiclePay();
     }
 
     public void motoComeIn() {
-        numberMotorcycles++;
+        synchronized (controlMotorcycles) {
+            numberMotorcycles++;
+        }
     }
 
     public void motoGoOut() {
-        numberMotorcycles--;
+        synchronized (controlMotorcycles) {
+            numberMotorcycles--;
+        }
         cash.vehiclePay();
     }
 }

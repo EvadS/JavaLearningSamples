@@ -24,14 +24,15 @@ public class ParkingCash {
      * write the value of the cash
      * attribute in the console and reinitialize it to zero:
      */
+
     public void close() {
-        System.out.printf("Closing accounting..... ");
-
+        System.out.printf("Closing accounting");
         long totalAmmount;
-        totalAmmount = cash;
-        cash = 0;
-
-        System.out.printf("The total amount is : %d", totalAmmount);
+        synchronized (this) {
+            totalAmmount=cash;
+            cash=0;
+        }
+        System.out.printf("The total amount is : %d",totalAmmount);
     }
 }
 
