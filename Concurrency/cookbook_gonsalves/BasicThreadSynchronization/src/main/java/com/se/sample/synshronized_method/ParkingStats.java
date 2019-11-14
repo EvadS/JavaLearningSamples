@@ -1,4 +1,4 @@
-package com.se.sample.synshronized;
+package com.se.sample.synshronized_method;
 
 public class ParkingStats {
 

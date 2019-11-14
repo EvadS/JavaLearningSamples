@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.se.sample</groupId>
-  <artifactId>java-core-oop</artifactId>
+  <artifactId>regexp-sample</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>java-core-oop</name>
+  <name>regexp-sample</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -71,15 +71,5 @@
         </plugin>
       </plugins>
     </pluginManagement>
-      <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                  <source>8</source>
-                  <target>8</target>
-              </configuration>
-          </plugin>
-      </plugins>
   </build>
 </project>

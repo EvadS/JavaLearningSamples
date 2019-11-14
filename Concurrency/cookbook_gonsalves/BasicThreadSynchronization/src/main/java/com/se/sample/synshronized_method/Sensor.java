@@ -1,4 +1,4 @@
-package com.se.sample.synshronized;
+package com.se.sample.synshronized_method;
 
 import java.util.concurrent.TimeUnit;
 
