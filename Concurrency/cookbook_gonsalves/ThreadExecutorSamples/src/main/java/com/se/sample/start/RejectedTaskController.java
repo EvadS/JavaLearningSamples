@@ -1,10 +1,18 @@
-package com.se.sample;
+package com.se.sample.start;
 
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 
+/**
+ * manage the rejected tasks of an executor
+ */
 public class RejectedTaskController implements RejectedExecutionHandler {
 
+    /**
+     * called for every task that is rejected by the executor.
+     * @param r
+     * @param executor
+     */
     @Override
     public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
         System.out.printf("RejectedTaskController: The task %s has been rejected\n",r.toString());

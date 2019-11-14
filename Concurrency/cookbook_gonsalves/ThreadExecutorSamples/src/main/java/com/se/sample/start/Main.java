@@ -1,9 +1,10 @@
-package com.se.sample;
+package com.se.sample.start;
 
 public class Main {
     public static void main(String[] args) {
         Server server = new Server();
         System.out.printf("Main: Starting.\n");
+
         for (int i = 0; i < 100; i++) {
             Task task = new Task("Task " + i);
             server.executeTask(task);

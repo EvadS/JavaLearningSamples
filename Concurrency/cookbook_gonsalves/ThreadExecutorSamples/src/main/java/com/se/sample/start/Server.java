@@ -1,19 +1,20 @@
-package com.se.sample;
+package com.se.sample.start;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * ass that will execute every task it receives using an
- * executor
+ * class that will execute every task it receives using an executor
  */
 public class Server {
 
     private final ThreadPoolExecutor executor;
 
     public Server() {
-        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(
-                Runtime.getRuntime().availableProcessors());
+        //Если количество отправленных вами заданий превышает количество
+        //потоков, оставшиеся задачи будут заблокированы, пока не появится свободный поток обработать их.
+        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+
         RejectedTaskController controller = new RejectedTaskController();
         executor.setRejectedExecutionHandler(controller);
     }
@@ -23,6 +24,7 @@ public class Server {
 
         // send it to the task:
         executor.execute(task);
+
 
         System.out.printf("Server: Pool Size: %d\n", executor.getPoolSize());
         System.out.printf("Server: Active Count: %d\n", executor.getActiveCount());
