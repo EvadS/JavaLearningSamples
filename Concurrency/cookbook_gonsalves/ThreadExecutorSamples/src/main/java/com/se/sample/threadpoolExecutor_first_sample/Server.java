@@ -1,4 +1,4 @@
-package com.se.sample.start;
+package com.se.sample.threadpoolExecutor_first_sample;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;

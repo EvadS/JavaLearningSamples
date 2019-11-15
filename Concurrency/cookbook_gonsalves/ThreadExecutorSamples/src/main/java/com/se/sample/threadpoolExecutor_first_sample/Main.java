@@ -1,4 +1,4 @@
-package com.se.sample.start;
+package com.se.sample.threadpoolExecutor_first_sample;
 
 public class Main {
     public static void main(String[] args) {

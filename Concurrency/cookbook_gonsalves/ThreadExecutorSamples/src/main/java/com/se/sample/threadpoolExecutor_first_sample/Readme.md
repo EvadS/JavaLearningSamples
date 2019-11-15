@@ -1,4 +1,9 @@
 
+Создаем ThreadPoolExecutor
+you can send Runnable or Callable objects to be executed.
+
+
+Executes the given task sometime in the future.
 
 information about the executor
 
