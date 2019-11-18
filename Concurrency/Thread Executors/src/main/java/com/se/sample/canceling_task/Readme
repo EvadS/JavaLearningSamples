@@ -1,9 +1,0 @@
-Canceling a task in an executor
-
-When you work with an executor, you don't have to manage threads. You only implement
-Runnable or Callable tasks and send them to the executor. It's the executor that's
-responsible for creating threads, managing them in a thread pool, and finishing them if they
-are not needed. Sometimes, you may want to cancel a task that you send to the executor. In
-that case, you can use the cancel() method of Future , which allows you to make the
-cancelation operation. In this recipe, you will learn how to use this method to cancel tasks
-that you have sent to an executor.

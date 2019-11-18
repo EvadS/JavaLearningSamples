@@ -1,4 +1,4 @@
-package com.se.sample ;
+package com.se.sample;
 
 /**
  * Hello world!
