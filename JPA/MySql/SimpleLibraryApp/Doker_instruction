@@ -1,0 +1,9 @@
+
+
+docker build -t my-image-tag . && docker run -p 8080:8080 my-image-tag
+
+
+How to Setup Logging
+
+
+docker build -t my-image-tag  . && docker run -p 8080:8080 -v /opt/spring-boot/test/log:/app/log -p 5005:5005 --env JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005  my-image-tag

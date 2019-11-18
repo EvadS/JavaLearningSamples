@@ -1,0 +1,20 @@
+
+
+My SQL
+
+docker run -d -p13033:3306 --name=docker-mysql --env="MYSQL_USER=root" --env="MYSQL_PASSWORD=123456" --env="MYSQL_DATABASE=book_manager" --env  "MYSQL_ROOT_PASSWORD=1234567" mysql
+
+-- для work beanch
+docker run -d -p 16033:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=root" --env="MYSQL_PASSWORD=123456" --env="MYSQL_DATABASE=book_manager"   --env="MYSQL_ROOT_PASSWORD=1234567" mysql
+
+
+остановить  все контейнеры
+docker stop $(docker ps -a -q)
+
+удалить контейнер -> docker container rm [ИМЯ_КОНЕТЕЙНЕРА | ID]
+
+remove all containers
+docker container rm -f $(docker ps -aq)
+
+(cannot be forced) - image has dependent child images
+ docker rmi -f $(docker images -q)

@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+ mySql-db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: book_manager
+      MYSQL_USER: evad
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 31323334
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '23306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - ./my-db:/var/lib/mysql

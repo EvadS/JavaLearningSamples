@@ -11,6 +11,13 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<exeFileName>exeFileName</exeFileName>
+		<jarFileName>gs-maven-0.1.0</jarFileName>
+		<version.jre.launch4j>1.8.0</version.jre.launch4j>
+		<launch4jVersion>1.2.3.4</launch4jVersion>
+
+		<bin.local.path></bin.local.path>
+
 	</properties>
 
 	<dependencies>
@@ -29,6 +36,13 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- end::junit[] -->
+
+		<dependency>
+			<groupId>com.akathist.maven.plugins.launch4j</groupId>
+			<artifactId>launch4j-maven-plugin</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -53,6 +67,77 @@
 					</execution>
 				</executions>
 			</plugin>
+
+
+			<plugin>
+				<groupId>com.akathist.maven.plugins.launch4j</groupId>
+				<artifactId>launch4j-maven-plugin</artifactId>
+				<version>1.7.16</version>
+				<executions>
+					<execution>
+						<id>l4j-clui</id>
+						<phase>package</phase>
+						<goals><goal>launch4j</goal></goals>
+						<configuration>
+							<headerType>console</headerType>
+							<outfile>target/${exeFileName}.exe</outfile>
+							<jar>target/${jarFileName}.jar</jar>
+							<errTitle>encc</errTitle>
+							<classPath>
+								<mainClass>myPackage.myMainClass</mainClass>
+								<addDependencies>true</addDependencies>
+								<preCp>anything</preCp>
+							</classPath>
+							<jre>
+								<minVersion>${version.jre.launch4j}</minVersion>
+								<opts>
+									<opt>-Djava.endorsed.dirs=./endorsed</opt>
+								</opts>
+							</jre>
+							<versionInfo>
+								<fileVersion>${launch4jVersion}</fileVersion>
+								<txtFileVersion>${launch4jVersion}</txtFileVersion>
+								<fileDescription>${project.name}</fileDescription>
+								<copyright>MIT</copyright>
+								<productVersion>${launch4jVersion}</productVersion>
+								<txtProductVersion>${launch4jVersion}</txtProductVersion>
+								<productName>${project.name}</productName>
+								<originalFilename>${exeFileName}.exe</originalFilename>
+								<!-- internalName is mandatory -->
+								<internalName>${exeFileName}</internalName>
+							</versionInfo>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Just copy the file in the local bin -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>deploy-to-local-directory</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${bin.local.path}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}</directory>
+									<includes>
+										<include>*.exe</include>
+									</includes>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
 		</plugins>
 	</build>
 

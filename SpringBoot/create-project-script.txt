@@ -1,0 +1,7 @@
+
+http https://start.spring.io/starter.zip \
+ dependencies==web,okta \
+ groupId==com.okta.spring-docker.demo \
+ packageName==com.okta.spring-docker.demo \
+ type==gradle-project \
+ -d

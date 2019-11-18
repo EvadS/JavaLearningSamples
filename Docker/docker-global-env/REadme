@@ -1,0 +1,31 @@
+
+
+В этом руководстве показано как делать несколько инстансов при помощи докера
+
+Make sure you generate first the .jar file by running:
+
+mvn clean package
+
+Then, you just need to execute:
+
+docker-compose up
+
+
+
+
+удалить все контейнеры
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+
+Remove all images
+List:
+    docker images -a
+
+Remove:
+    docker rmi $(docker images -a -q)
+
+(cannot be forced) - image has dependent child images
+ docker rmi -f $(docker images -q)
+--------------------------------------------

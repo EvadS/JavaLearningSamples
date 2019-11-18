@@ -1,0 +1,143 @@
+<configuration>
+
+
+    <property name="LOG_LOCATION" value="${java.io.tmpdir}"/>
+    <property name="LOGS" value="./my-logs"/>
+    <property name="LOG_PATH" value="logs"/>
+
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>---\n%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="M-FILE" class="ch.qos.logback.core.FileAppender">
+        <File>${LOG_LOCATION}/archived/mylog.log</File>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n</pattern>
+        </encoder>
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+        <!--<fileNamePattern>{LOG_LOCATION}/archived/mylog-%d{yyyy-MM-dd}.%i.log-->
+        <!--</fileNamePattern>-->
+        <!--<timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+        <!--<maxFileSize>10MB</maxFileSize>-->
+        <!--</timeBasedFileNamingAndTriggeringPolicy>-->
+        <!--</rollingPolicy>-->
+    </appender>
+
+    <appender name="localRootFolder"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/spring-boot-logger.log</file>
+        <encoder
+                class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+        </encoder>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily and when the file reaches 10 MegaBytes -->
+            <fileNamePattern>${LOGS}/archived/spring-boot-logger-%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="SAVE-TO-FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/log.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
+            </Pattern>
+        </encoder>
+
+        <!-- Comment out rolling policies to test how the remaining one works -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>
+                ${LOG_PATH}/archived/log.%d{dd-MM-yyyy}.log
+            </fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>100MB</totalSizeCap>
+        </rollingPolicy>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- rollover daily & on size-->
+            <maxFileSize>10MB</maxFileSize>
+            <fileNamePattern>
+                ${LOG_PATH}/archived/log_%d{dd-MM-yyyy}_%i.log
+            </fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>100MB</totalSizeCap>
+        </rollingPolicy>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>
+                ${LOG_PATH}/log_%i.log
+            </fileNamePattern>
+            <minIndex>2</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <!-- rollover on size-->
+            <maxFileSize>1KB</maxFileSize>
+        </triggeringPolicy>
+
+    </appender>
+
+
+    <root level="warn">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <root level="info">
+        <!--для всех инфо в консоль-->
+        <!--<appender-ref ref="STDOUT"/>-->
+        <appender-ref ref="M-FILE"/>
+    </root>
+
+    <!--<root level="DEBUG">-->
+    <!--&lt;!&ndash;<appender-ref ref="RollingFile" />&ndash;&gt;-->
+    <!--</root>-->
+
+    <!--&lt;!&ndash; Application logs at trace level &ndash;&gt;-->
+    <logger name="com.se.samplelogging.service.MyServiceImpl" level="info" additivity="false">
+        <appender-ref ref="localRootFolder"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.se.samplelogging.controller.LoggingController" level="info" additivity="false">
+        <appender-ref ref="SAVE-TO-FILE"/>
+    </logger>
+
+    <!--<springProfile name="dev">-->
+        <!--<root level="info">-->
+            <!--<appender-ref ref="STDOUT"/>-->
+            <!--<appender-ref ref="SAVE-TO-FILE"/>-->
+        <!--</root>-->
+        <!--<logger name="com.se.samplelogging.controller.MainController" additivity="false" level="debug">-->
+            <!--<appender-ref ref="STDOUT"/>-->
+            <!--<appender-ref ref="SAVE-TO-FILE"/>-->
+        <!--</logger>-->
+    <!--</springProfile>-->
+
+
+
+
+
+</configuration>

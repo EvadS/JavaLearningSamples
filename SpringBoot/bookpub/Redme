@@ -1,0 +1,55 @@
+
+тестовый проект для всевозможных манипуляций с rest api
+
+Что есть
+1. Formatter
+2. Startup Runner
+3 PropertyEditorSupport
+@RepositoryRestResource
+
+---------------------------------------------
+
+1.https://learning.oreilly.com/library/view/spring-boot-20/9781787129825/74f0c71d-43ff-43d5-9c76-f5813c91a0e7.xhtml
+https://github.com/PacktPublishing/Spring-Boot-2.0-Cookbook-Second-Edition/tree/master/Chapter02/ch2/src/main/java/com/example/bookpub
+
+
+
+Работа с коммандной строки
+
+
+ DEBUG=true mvn clean package spring-boot:repackage
+ mvn spring-boot:run
+
+ mvn checkstyle:checkstyle
+
+------------------------------------
+ mvn clean verify sonar:sonar
+
+1.  install sonar
+download
+https://www.sonarqube.org/
+
+run :
+  /bin/[OS]/sonar.sh console
+ ./sonarqube-8.0/bin/linux-x86-64/sonar.sh
+
+ 2. ~/m2 -> settings/xml
+ <settings>
+     <pluginGroups>
+         <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+     </pluginGroups>
+     <profiles>
+         <profile>
+             <id>sonar</id>
+             <activation>
+                 <activeByDefault>true</activeByDefault>
+             </activation>
+             <properties>
+                 <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                 <sonar.host.url>
+                   http://127.0.0.1:9000
+                 </sonar.host.url>
+             </properties>
+         </profile>
+      </profiles>
+ </settings>

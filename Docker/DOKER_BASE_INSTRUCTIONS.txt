@@ -1,0 +1,56 @@
+здесь основые комманды для докера 
+docker info
+
+##1. Images 
+
+List ->docker images -a
+Delete image -> docker rmi -f name_image
+Delete all image -> docker rmi -f $(docker images -a -q)
+--------------------------------------------------------------------------
+##2. конейнеры
+
+остановить  все контейнеры
+docker stop $(docker ps -a -q)
+
+удалить контейнер -> docker container rm [ИМЯ_КОНЕТЕЙНЕРА | ID]
+
+remove all containers
+docker container rm -f $(docker ps -aq)
+
+(cannot be forced) - image has dependent child images
+ docker rmi -f $(docker images -q)
+
+--------------------------------------------
+
+## 3. Логи 
+docker logs -f <container_id>
+
+## 4. Запуск контейнера 
+
+базовый вариант:
+docker run -it --name my-image-name alpine sh
+
+#запускаем  образ с именем -image-name
+#на базе образа alpine
+#в запущенном образе страртонет консоль
+----------------------------------------------
+docker run 
+-p <machine_port>:<container_port>
+ — name <Docker_Conainter_Name>
+ -d <Docker_Image_Name>
+
+
+
+
+##### DockerHub
+* docker login 
+--username <username> --password <password>
+
+
+docker commit 
+
+* docker tag <image_name> <username>/<your repository on docker hub>
+* docker push <username>/<your repository on docker hub>
+
+docker build . -t spring-docker-01
+

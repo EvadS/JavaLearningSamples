@@ -1,0 +1,11 @@
+version: '2.2'
+services:
+  hola:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: holaweb
+    ports:
+      - 10001:10001
+    environment:
+        - SPRING_PROFILES_ACTIVE= SPRING_PROFILES_ACTIVE_CONTAINER

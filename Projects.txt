@@ -1,0 +1,8 @@
+
+
+
+/JPA/MySql/BlogPosts
+JPA, Entity, swagger 
+
+
+/JPA/MySql/bool manager -отношения между таблицами проект пока не запускается поскольку все на Lombook 

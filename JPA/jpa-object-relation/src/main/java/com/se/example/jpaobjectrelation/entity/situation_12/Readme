@@ -1,0 +1,31 @@
+The parent entity has a composite primary key (EmbeddedId) and the dependent entity uses EmbeddedId to represent a composite key.
+@Embeddable
+public class EmployeeId {
+   String firstName;
+   String lastName;
+}
+
+@Entity
+public class Employee {
+   @EmbeddedId
+   EmployeeId empId;
+}
+
+@Embeddable
+public class DependentId {
+   String name;
+   EmployeeId empPK; // corresponds to PK type of Employee
+}
+
+@Entity
+@IdClass(DependentId.class)
+public class Dependent {
+   @EmbeddedId
+   DependentId id;
+   @MapsId("empPK")
+   @JoinColumns({
+      @JoinColumn(name="Employee_firstName", referencedColumnName="firstName"),
+      @JoinColumn(name="Employee_lastName", referencedColumnName="lastName")
+   })
+   @ManyToOne Employee employee;
+}
