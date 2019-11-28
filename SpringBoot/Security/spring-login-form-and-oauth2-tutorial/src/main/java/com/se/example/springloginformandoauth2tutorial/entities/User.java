@@ -1,47 +1,88 @@
 package com.se.example.springloginformandoauth2tutorial.entities;
 
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Collection;
-import java.util.Objects;
-import java.util.Set;
+import java.util.List;
+
 
 @Entity
-@Table(name = "user")
-public class User implements UserDetails
-{
+@Table(name = "users")
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false)
 
-    private String username;
+
+    @NotEmpty
+    @Email(message = "{errors.invalid_email}")
+    private String email;
+
+    @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 4)
     private String password;
-    private String name;
-    private boolean active;
+
     private String googleName;
     private String googleUsername;
 
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    @Enumerated(EnumType.STRING)
-    private Set<Role> roles;
+    private String username;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
+    private boolean active;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "user_role",
+            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
+    private List<Role> roles;
+
+    public boolean isActive() {
+        return active;
     }
 
-    @Override
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String getUsername() {
-        return username;
+        return null;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -64,36 +105,17 @@ public class User implements UserDetails
         return false;
     }
 
-    public Long getId() {
-        return id;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getRoles();
     }
 
     public String getGoogleName() {
@@ -112,14 +134,4 @@ public class User implements UserDetails
         this.googleUsername = googleUsername;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-
-    //Геттеры, сеттеры, toString(), equals(), hashcode(), имплементация UserDetails
 }

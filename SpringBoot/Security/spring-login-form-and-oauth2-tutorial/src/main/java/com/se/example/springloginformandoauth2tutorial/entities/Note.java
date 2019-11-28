@@ -7,8 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "note")
-public class Note
-{
+public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,49 +21,40 @@ public class Note
     @NotNull
     private Long userId;
 
-    public Long getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title)
-    {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getNote()
-    {
+    public String getNote() {
         return note;
     }
 
-    public void setNote(String note)
-    {
+    public void setNote(String note) {
         this.note = note;
     }
 
-    public Long getUserId()
-    {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId)
-    {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Note{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
@@ -74,10 +64,9 @@ public class Note
     }
 
     @Override
-    public boolean equals(Object o)
-    {
-        if(this == o) return true;
-        if(o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Note note1 = (Note) o;
         return Objects.equals(getId(), note1.getId()) &&
                 Objects.equals(getTitle(), note1.getTitle()) &&
@@ -86,8 +75,7 @@ public class Note
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return Objects.hash(getId(), getTitle(), getNote(), getUserId());
     }
 }

@@ -29,11 +29,11 @@ public class RegistrationController {
     public String addUser(String name, String username, String password)
     {
         User user = new User();
-        user.setName(name);
-        user.setUsername(username);
+        user.setEmail(username);
+        user.setUsername(name);
         user.setPassword(passwordEncoder.encode(password));
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
+        //user.setRoles(Collections.singleton(Role.));
 
         userRepo.save(user);
 

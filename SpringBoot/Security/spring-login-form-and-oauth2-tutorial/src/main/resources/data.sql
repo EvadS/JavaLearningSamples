@@ -1,0 +1,20 @@
+-- CREATE TABLE "user"
+-- (
+--   id bigint NOT NULL,
+--   active bit(1) NOT NULL,
+--   google_name character varying(255) NOT NULL,
+--   google_username character varying(255)  NOT NULL,
+--   name character varying(255)  NOT NULL,
+--   password character varying(255) NOT NULL,
+--   username character varying(255) NOT NULL,
+--   CONSTRAINT user_pkey PRIMARY KEY (id));
+--
+--
+--
+-- CREATE TABLE user_role
+-- (
+--   user_id bigint NOT NULL,
+--   roles character varying(255) COLLATE pg_catalog."default"
+-- );
+--
+-- alter table "user_role" add CONSTRAINT "user_role_fk" FOREIGN KEY (user_id) REFERENCES "user"("id");
