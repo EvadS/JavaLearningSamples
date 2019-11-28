@@ -1,4 +1,0 @@
-
-temp = readFromFile(path + File.separator + CERTIFICATES_SUB_FOLDER + File.separator + file.getName());
-certificate = parseCertificate(temp);
-caCertificates.add(certificate);
