@@ -1,0 +1,16 @@
+
+step 1
+heroku create <YOUR_UNIQUE_APP_NAME>
+
+
+optional
+ heroku apps:rename  'base-spring-boot-application' --app   mysterious-wildwood-55176
+
+
+ heroku git:remote -a base-spring-boot-application
+ git push heroku master
+
+
+ ------------------------------------------------------------------
+
+ heroku open
