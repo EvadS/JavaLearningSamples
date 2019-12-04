@@ -1,0 +1,50 @@
+
+PostgreSQL setup
+We are going to show how to install PostgreSQL database on a Debian Linux system.
+
+$ sudo apt-get install postgresql
+This command installs PostgreSQL server and related packages.
+
+$ /etc/init.d/postgresql status
+We check the status of the database with postgresql status command.
+
+$ sudo -u postgres psql postgres
+psql (9.5.10)
+Type "help" for help.
+
+postgres=# \password postgres
+Enter new password:
+Enter it again:
+
+
+After the installation, a postgres user with administration priviliges was created with empty default password. As the first step, we need to set a password for postgres.
+
+$ sudo -u postgres createuser --interactive --password user12
+Shall the new role be a superuser? (y/n) n
+Shall the new role be allowed to create databases? (y/n) y
+Shall the new role be allowed to create more new roles? (y/n) n
+Password:
+We create a new database user.
+
+$ sudo -u postgres createdb testdb -O user12
+We create a new testdb database with createdb command, which is going to be owned by user12.
+
+$ sudo vi /etc/postgresql/9.5/main/pg_hba.conf
+We edit the pg_hba.conf file.
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+In order to be able to run a Spring Boot application with a local PostgreSQL installation, we change the authentication method for the Unix domain socket and local connections to trust.
+
+$ sudo service postgresql restart
+We restart PostgreSQL to enable the changes.
+
+$ psql -U user12 -d testdb -W
+Password for user user12:
+psql (9.5.10)
+Type "help" for help.
+
+testdb=>
+Now we can use the psql tool to connect to the database.

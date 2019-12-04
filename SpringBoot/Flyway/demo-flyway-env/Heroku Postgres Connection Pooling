@@ -1,0 +1,47 @@
+On Linux/Mac:
+export DATABASE_URL=jdbc:postgresql://localhost/msweater
+
+
+
+sudo -H gedit /etc/environment
+to /etc/enviroment
+export JDBC_DATABASE_URL=jdbc:postgresql://localhost/msweater?user=postgres&password=123456
+
+On Windows:
+set JDBC_DATABASE_URL=postgres://foo:foo@localhost/hellodb
+
+o run the example applications locally, execute the generated start scripts:
+
+On Linux/Mac:
+sh devcenter-java-database-plain-jdbc/target/bin/main
+sh devcenter-java-database-spring-xml/target/bin/main
+sh devcenter-java-database-spring-java/target/bin/main
+On Windows:
+devcenter-java-database-plain-jdbc/target/bin/main.bat
+devcenter-java-database-spring-xml/target/bin/main.bat
+devcenter-java-database-spring-java/target/bin/main.bat
+
+spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
+
+--------------------------------------------------------------------
+    o set JAVA_HOME environment variable, do the following:
+
+    Launch Terminal by pressing Ctrl+Alt+T on your keyboard.
+    Enter the following command:
+    $ sudo gedit /etc/environment
+    Depending on where you installed your Java, you will need to provide the full path. For this example, I installed Oracle JDK 7 in the /usr/lib/jvm/java-7-oracle directory.
+    Scroll to the end of the file and enter the following:
+    JDBC_DATABASE_URL=/usr/lib/jvm/java-7-oracle
+    export JDBC_DATABASE_URL
+
+    Save your file and exit gedit.
+    Lastly, reload the system PATH with the following command:
+    $ . /etc/environment
+
+    f you want to "reload" whatever is in the /etc/environment you need the following command:
+
+    source /etc/environment

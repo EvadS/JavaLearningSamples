@@ -1,8 +1,0 @@
-Run the app by typing the following command in terminal -
-
-mvn spring-boot:run
-
-Flyway creates a table called flyway_schema_history
-
-banner generator for spring boot
-https://devops.datenkollektiv.de/banner.txt/index.html
