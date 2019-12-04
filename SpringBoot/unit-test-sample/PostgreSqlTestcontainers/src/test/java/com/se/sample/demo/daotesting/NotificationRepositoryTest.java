@@ -12,9 +12,10 @@ import org.junit.Assert;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;
@@ -23,7 +24,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.testcontainers.containers.PostgreSQLContainer;
 
-import static net.bytebuddy.matcher.ElementMatchers.is;
+import java.text.NumberFormat;
+
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -31,6 +33,11 @@ import static net.bytebuddy.matcher.ElementMatchers.is;
 @ContextConfiguration(initializers = { NotificationRepositoryTest.Initializer.class })
 
 public class NotificationRepositoryTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(NotificationRepositoryTest.class);
+
+
+
     @Autowired
     private NotificationRepository repository;
 
@@ -55,6 +62,29 @@ public class NotificationRepositoryTest {
                     "spring.datasource.password=" + postgreSQLContainer.getPassword())
                     .applyTo(configurableApplicationContext.getEnvironment());
         }
+
+    }
+
+    @Test
+    public void should_discribe_current_mem_props (){
+        Runtime runtime = Runtime.getRuntime();
+
+        NumberFormat format = NumberFormat.getInstance();
+
+        StringBuilder sb = new StringBuilder();
+        long maxMemory = runtime.maxMemory();
+        long allocatedMemory = runtime.totalMemory();
+        long freeMemory = runtime.freeMemory();
+
+        sb.append("\n");
+        sb.append("free memory: " + format.format(freeMemory / 1024) + "\n");
+        sb.append("allocated memory: " + format.format(allocatedMemory / 1024) + "\n");
+        sb.append("max memory: " + format.format(maxMemory / 1024) + "\n");
+        sb.append("total free memory: " + format.format((freeMemory + (maxMemory - allocatedMemory)) / 1024) + "n");
+
+        LOG.info("*****");
+        LOG.info(sb.toString());
+        LOG.info("*************************************************************************************************");
 
     }
 
