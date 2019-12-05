@@ -1,16 +1,66 @@
 
-step 1
-heroku create <YOUR_UNIQUE_APP_NAME>
+###step 1
+Creates a Heroku application with random name (and domain)
+#Creates a Hit repository at heroku# registers the remote repository by the name Heroku
 
+```heroku create demo-flyway-env```
 
-optional
- heroku apps:rename  'base-spring-boot-application' --app   mysterious-wildwood-55176
+ ```heroku buildpacks:set heroku/java```
 
+### step 2
 
- heroku git:remote -a base-spring-boot-application
- git push heroku master
+git init
+git add .
+git commit -am 'initial commit'
+
+###step 3
+
+Pushes the source code to the Heroku Git repo, so Heroku can build and deploy it
+ heroku git:remote -a demo-flyway-env
+
+``` git push heroku master ```
 
 
  ------------------------------------------------------------------
-
+step 4
  heroku open
+ You can see the logs of the application anytime by running the following command -
+
+ heroku logs --tail
+
+ step 0
+ Use a database
+
+ heroku addons
+
+
+Listing your app’s config vars will display the URL that your app is using to connect to the database
+
+Здесь мы можем получить DATABASE_URL
+``` heroku config ```
+
+К примеру
+
+ DATABASE_URL: postgres://qtkgyqcnhphdel:74f5d665be1e8a19cd34c5177706b28d5f1366f9b09fa88e9830d842fef8b49a@ec2-107-22-239-155.compute-1.amazonaws.com:5432/duufp7v57k906
+
+
+---
+The ``` heroku pg  ``` command provides more in-depth information on your app’s Heroku Postgres databases:
+
+---
+коннектимся с помощь HIkary
+The HikariCP database connection pool is initialized with the configuration value spring.datasource.url, which is defined in src/main/resources/application.properties like this:
+
+spring.datasource.url: ${JDBC_DATABASE_URL:}
+
+----------
+
+use the heroku ``` pg:psql ```  command to connect to the remote database and see all the rows:
+
+
+
+
+
+
+https://dzone.com/articles/spring-boot-heroku-and-cicd
+
