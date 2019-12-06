@@ -2,12 +2,12 @@
 <html lang="en">
 <body>
 <h1>Login</h1>
-<form action="/login" method="post">                            (1)
+<form  method="post">                            (1)
 	<label for="username">Username:</label>
 	<input type="text" name="username" />                         (2)
 	<label for="password">Password:</label>
 	<input type="password" name="password" />                     (3)
-	<input type="hidden" name="_csrf" value="{{_csrf.token}}" />  (4)
+	<input type="hidden" name="_csrf" value="{{_csrf.token}}" />  (4) <p>action="/login"</p>
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </body>

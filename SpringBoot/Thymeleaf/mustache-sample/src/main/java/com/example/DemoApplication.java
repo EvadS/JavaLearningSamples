@@ -37,10 +37,14 @@ public class DemoApplication extends WebSecurityConfigurerAdapter {
 }
 
 @Controller
-@RequestMapping("/")
 class HomeController {
     @GetMapping
     public String home() {
+        return "index";
+    }
+
+    @PostMapping
+    public String home3() {
         return "index";
     }
 }
@@ -56,8 +60,13 @@ class LoginController {
         return "login";
     }
 
+    @PostMapping("/ww")
+    public void test(@RequestParam String username, @RequestParam String password_ ){
+        int a =10;
+    }
 
-    @PostMapping
+
+    @PostMapping("/y")
     public void authenticate(@RequestParam Map<String, String> map,
                              HttpServletRequest request, HttpServletResponse response) throws Exception {
         Authentication result = new UsernamePasswordAuthenticationToken(
