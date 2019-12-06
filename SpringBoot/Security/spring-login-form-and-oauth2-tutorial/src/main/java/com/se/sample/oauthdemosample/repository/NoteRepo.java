@@ -1,7 +1,6 @@
-package com.se.example.springloginformandoauth2tutorial.repos;
+package com.se.sample.oauthdemosample.repository;
 
-
-import com.se.example.springloginformandoauth2tutorial.entities.Note;
+import com.se.sample.oauthdemosample.entities.Note;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;

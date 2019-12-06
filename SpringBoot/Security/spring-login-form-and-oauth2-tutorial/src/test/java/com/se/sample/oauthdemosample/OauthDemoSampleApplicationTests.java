@@ -1,10 +1,10 @@
-package com.se.example.springloginformandoauth2tutorial;
+package com.se.sample.oauthdemosample;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringLoginFormAndOauth2TutorialApplicationTests {
+class OauthDemoSampleApplicationTests {
 
     @Test
     void contextLoads() {

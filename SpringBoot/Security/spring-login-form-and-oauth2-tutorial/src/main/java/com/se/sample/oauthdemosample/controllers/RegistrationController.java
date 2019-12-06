@@ -1,8 +1,8 @@
-package com.se.example.springloginformandoauth2tutorial.controllers;
+package com.se.sample.oauthdemosample.controllers;
 
-import com.se.example.springloginformandoauth2tutorial.entities.Role;
-import com.se.example.springloginformandoauth2tutorial.entities.User;
-import com.se.example.springloginformandoauth2tutorial.repos.UserRepo;
+import com.se.sample.oauthdemosample.entities.Role;
+import com.se.sample.oauthdemosample.entities.User;
+import com.se.sample.oauthdemosample.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -20,20 +20,18 @@ public class RegistrationController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/registration")
-    public String registration()
-    {
+    public String registration() {
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String addUser(String name, String username, String password)
-    {
+    public String addUser(String name, String username, String password) {
         User user = new User();
-        user.setEmail(username);
-        user.setUsername(name);
+        user.setName(name);
+        user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
         user.setActive(true);
-        //user.setRoles(Collections.singleton(Role.));
+        user.setRoles(Collections.singleton(Role.USER));
 
         userRepo.save(user);
 

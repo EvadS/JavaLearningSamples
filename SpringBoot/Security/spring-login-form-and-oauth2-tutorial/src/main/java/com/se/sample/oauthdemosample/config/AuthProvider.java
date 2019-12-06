@@ -1,7 +1,8 @@
-package com.se.example.springloginformandoauth2tutorial.config;
+package com.se.sample.oauthdemosample.config;
 
-import com.se.example.springloginformandoauth2tutorial.entities.User;
-import com.se.example.springloginformandoauth2tutorial.service.UserService;
+
+import com.se.sample.oauthdemosample.entities.User;
+import com.se.sample.oauthdemosample.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,36 +15,39 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
-/**
- * позволит пользователю входить не только по email, но и по имени пользователя.
- */
 @Component
-public class AuthProvider implements AuthenticationProvider {
+public class AuthProvider implements AuthenticationProvider
+{
     @Autowired
     private UserService userService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException
+    {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
 
         User user = (User) userService.loadUserByUsername(username);
 
-        if (user != null && (user.getUsername().equals(username) || user.getEmail().equals(username))) {
-            if (!passwordEncoder.matches(password, user.getPassword())) {
+        if(user != null && (user.getUsername().equals(username) || user.getName().equals(username)))
+        {
+            if(!passwordEncoder.matches(password, user.getPassword()))
+            {
                 throw new BadCredentialsException("Wrong password");
             }
 
             Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
             return new UsernamePasswordAuthenticationToken(user, password, authorities);
-        } else
+        }
+        else
             throw new BadCredentialsException("Username not found");
     }
 
-    public boolean supports(Class<?> arg) {
+    public boolean supports(Class<?> arg)
+    {
         return true;
     }
 }
