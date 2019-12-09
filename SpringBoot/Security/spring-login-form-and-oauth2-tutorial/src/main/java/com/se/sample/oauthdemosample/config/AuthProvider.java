@@ -2,7 +2,8 @@ package com.se.sample.oauthdemosample.config;
 
 
 import com.se.sample.oauthdemosample.entities.User;
-import com.se.sample.oauthdemosample.service.UserService;
+
+import com.se.sample.oauthdemosample.service.UserSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,7 +20,7 @@ import java.util.Collection;
 public class AuthProvider implements AuthenticationProvider
 {
     @Autowired
-    private UserService userService;
+    private UserSevice userService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;

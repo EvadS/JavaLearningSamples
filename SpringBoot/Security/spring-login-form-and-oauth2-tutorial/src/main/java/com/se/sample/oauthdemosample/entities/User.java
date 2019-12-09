@@ -58,10 +58,10 @@ public class User implements UserDetails
     }
 
     @Override
-    public boolean isAccountNonExpired()
-    {
+    public boolean isAccountNonExpired() {
         return true;
     }
+
 
     @Override
     public boolean isAccountNonLocked()
@@ -82,8 +82,7 @@ public class User implements UserDetails
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities()
-    {
+    public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
     }
 

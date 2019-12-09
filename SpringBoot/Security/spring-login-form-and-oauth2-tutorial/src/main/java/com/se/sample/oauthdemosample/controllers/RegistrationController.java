@@ -24,6 +24,7 @@ public class RegistrationController {
         return "registration";
     }
 
+
     @PostMapping("/registration")
     public String addUser(String name, String username, String password) {
         User user = new User();
