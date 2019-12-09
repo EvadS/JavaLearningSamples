@@ -4,7 +4,7 @@ package com.se.sample.oauthdemosample.controllers;
 import com.se.sample.oauthdemosample.entities.Note;
 import com.se.sample.oauthdemosample.entities.User;
 import com.se.sample.oauthdemosample.repository.NoteRepo;
-import com.se.sample.oauthdemosample.service.UserSevice;
+import com.se.sample.oauthdemosample.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +21,7 @@ public class NoteController
     private NoteRepo noteRepo;
 
     @Autowired
-    private UserSevice userService;
+    private UserService userService;
 
     @GetMapping("/notes")
     public String notes(Principal principal, Model model)
