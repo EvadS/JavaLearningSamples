@@ -3,7 +3,6 @@ package com.se.sample.oauthdemosample.entities;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
@@ -12,8 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usr")
-public class User implements UserDetails
-{
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -37,23 +35,19 @@ public class User implements UserDetails
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    public Long getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getUsername()
-    {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username)
-    {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -64,20 +58,17 @@ public class User implements UserDetails
 
 
     @Override
-    public boolean isAccountNonLocked()
-    {
+    public boolean isAccountNonLocked() {
         return true;
     }
 
     @Override
-    public boolean isCredentialsNonExpired()
-    {
+    public boolean isCredentialsNonExpired() {
         return true;
     }
 
     @Override
-    public boolean isEnabled()
-    {
+    public boolean isEnabled() {
         return isActive();
     }
 
@@ -86,33 +77,27 @@ public class User implements UserDetails
         return getRoles();
     }
 
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password)
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public boolean isActive()
-    {
+    public boolean isActive() {
         return active;
     }
 
-    public void setActive(boolean active)
-    {
+    public void setActive(boolean active) {
         this.active = active;
     }
 
@@ -124,29 +109,24 @@ public class User implements UserDetails
         this.roles = roles;
     }
 
-    public String getGoogleName()
-    {
+    public String getGoogleName() {
         return googleName;
     }
 
-    public void setGoogleName(String googleName)
-    {
+    public void setGoogleName(String googleName) {
         this.googleName = googleName;
     }
 
-    public String getGoogleUsername()
-    {
+    public String getGoogleUsername() {
         return googleUsername;
     }
 
-    public void setGoogleUsername(String googleUsername)
-    {
+    public void setGoogleUsername(String googleUsername) {
         this.googleUsername = googleUsername;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
@@ -160,10 +140,9 @@ public class User implements UserDetails
     }
 
     @Override
-    public boolean equals(Object o)
-    {
-        if(this == o) return true;
-        if(o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return isActive() == user.isActive() &&
                 Objects.equals(getId(), user.getId()) &&
@@ -176,8 +155,7 @@ public class User implements UserDetails
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return Objects.hash(getId(), getUsername(), getPassword(), getName(), isActive(), getGoogleName(), getGoogleUsername(), getRoles());
     }
 }
