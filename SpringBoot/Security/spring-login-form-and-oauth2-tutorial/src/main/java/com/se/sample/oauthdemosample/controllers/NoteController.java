@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -28,7 +29,8 @@ public class NoteController
     {
         User user = (User) userService.loadUserByUsername(principal.getName());
 
-        List<Note> notes = noteRepo.findByUserId(user.getId());
+        List<Note> notes =  new ArrayList<>();
+        //noteRepo.findByUserId(user.getId());
         model.addAttribute("notes", notes);
         model.addAttribute("user", user);
 
