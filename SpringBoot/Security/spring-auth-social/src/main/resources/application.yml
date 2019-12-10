@@ -19,27 +19,27 @@ spring:
           oauth2:
             client:
               registration:
-#                google:
-#                  clientId: 5014057553-8gm9um6vnli3cle5rgigcdjpdrid14m9.apps.googleusercontent.com
-#                  clientSecret: tWZKVLxaD_ARWsriiiUFYoIk
-#                  redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
-#                  scope:
-#                    - email
-#                    - profile
+                google:
+                  clientId: 413955151807-q8fg9us5ni6mnvftehn0nhuanmjfarpl.apps.googleusercontent.com
+                  clientSecret: jd8WzskuZ4kKTXs4RSQH6x_B
+                  redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+                  scope:
+                    - email
+                    - profile
                 facebook:
                   clientId: 569900857161921
                   clientSecret: bd7a47777580db77027f5429d633d027
-                  redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
+                  redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
                   scope:
                     - email
                     - public_profile
-#                github:
-#                  clientId: d3e47fc2ddd966fa4352
-#                  clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
-#                  redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
-#                  scope:
-#                    - user:email
-#                    - read:user
+                github:
+                  clientId: d3e47fc2ddd966fa4352
+                  clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
+                  redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+                  scope:
+                    - user:email
+                    - read:user
               provider:
                 facebook:
                   authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
