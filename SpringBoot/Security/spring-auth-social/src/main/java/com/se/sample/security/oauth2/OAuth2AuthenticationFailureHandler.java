@@ -1,6 +1,5 @@
 package com.se.sample.security.oauth2;
 
-
 import com.se.sample.util.CookieUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;

@@ -12,9 +12,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-/**
- * represents an authenticated Spring Security principal. It contains the details of the authenticated user
- */
 public class UserPrincipal implements OAuth2User, UserDetails {
     private Long id;
     private String email;

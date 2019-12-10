@@ -5,8 +5,6 @@ import com.se.sample.security.oauth2.CustomOAuth2UserService;
 import com.se.sample.security.oauth2.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.se.sample.security.oauth2.OAuth2AuthenticationFailureHandler;
 import com.se.sample.security.oauth2.OAuth2AuthenticationSuccessHandler;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

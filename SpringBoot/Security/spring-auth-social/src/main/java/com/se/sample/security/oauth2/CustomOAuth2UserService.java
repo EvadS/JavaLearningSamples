@@ -1,5 +1,6 @@
 package com.se.sample.security.oauth2;
 
+
 import com.se.sample.exception.OAuth2AuthenticationProcessingException;
 import com.se.sample.model.AuthProvider;
 import com.se.sample.model.User;
