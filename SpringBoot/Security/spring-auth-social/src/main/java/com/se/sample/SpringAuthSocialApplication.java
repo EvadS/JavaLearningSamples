@@ -1,13 +1,13 @@
-package com.se.springcocial;
+package com.se.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringCocialApplication {
+public class SpringAuthSocialApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCocialApplication.class, args);
+        SpringApplication.run(SpringAuthSocialApplication.class, args);
     }
 
 }
