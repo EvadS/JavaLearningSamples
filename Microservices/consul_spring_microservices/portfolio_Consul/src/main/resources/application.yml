@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: portfolio-service
+server:
+  port: 57116
