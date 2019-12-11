@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"></link>
+
+    <title>Standart App Template</title>
+
+    <!-- System CSS-->
+    <link th:href="@{/css/system/bootstrap.min.css}" rel="stylesheet"></link>
+    <!-- System JS -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script th:src="@{/js/system/html5shiv.js}"></script>
+    <script th:src="@{/js/system/respond.min.js}"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link th:href="@{/css/app.style.css}" rel="stylesheet" ></link>
+    <!-- Custom JS -->
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}" th:text="#{app.name}">App Name</a>
+        </div>
+        <div class="navbar-collapse collapse" style="height: 1px;">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:href="@{/test}">Test page</a></li>
+                <li><a th:href="@{/testerror}">Error</a></li>
+                <li><a th:href="@{/admin}">Only for admin</a></li>
+                <li><a th:href="@{/user}"><span sec:authentication="name">Username</span></a></li>
+                <li><a th:href="@{/logout}" th:text="#{common.logout}">Logout</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search..."></input>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="">Active item</a></li>
+                <li><a href="">Item 2</a></li>
+                <li><a href="">Item 3</a></li>
+                <li><a href="">Item 4</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div layout:fragment="content">
+                <!-- Content -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- System JS -->
+<script th:src="@{/js/system/jquery.min.js}"></script>
+<script th:src="@{/js/system/bootstrap.min.js}"></script>
+<!-- CUSTOM JS -->
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"></link>
+
+    <title th:text="#{common.login}"></title>
+
+    <!-- System CSS-->
+    <link th:href="@{/css/system/bootstrap.min.css}" rel="stylesheet"></link>
+	<!-- System JS -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script th:src="@{/js/system/html5shiv.js}"></script>
+      <script th:src="@{/js/system/respond.min.js}"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link th:href="@{/css/app.login.css}" rel="stylesheet"></link>
+	<!-- Custom JS -->
+</head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin" role="form" th:action="@{/login}" method="post">
+        <h2 class="form-signin-heading" th:text="#{loginForm.message}">Please sign in</h2>
+        <div th:if="${param.error}" class="alert alert-error" th:text="#{loginForm.error}">
+            Invalid username or password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success" th:text="#{loginForm.logout}">
+            You have been logged out.
+        </div>
+        <!--<input name="email" id="email" type="email" class="form-control" placeholder="Email address" required="" autofocus=""></input>-->
+        <input name="username" id="username" type="text" class="form-control" th:placeholder="#{loginForm.username}" required=""></input>
+        <input name="password" id="password" type="password" class="form-control" th:placeholder="#{loginForm.password}" required=""></input>
+        <label class="checkbox">
+          <input name="remember-me" id="remember-me" type="checkbox"></input> <span th:text="#{loginForm.remember}">Remember me</span>
+        </label>
+          <div>
+              <a th:href="@{/login?locale=ru}"><img th:src="@{/img/icons/ru.png}"></img></a> <a th:href="@{/login?locale=en}"><img th:src="@{/img/icons/en.png}"></img></a>
+          </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{loginForm.login}">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+
+  
+</body>
+</html>

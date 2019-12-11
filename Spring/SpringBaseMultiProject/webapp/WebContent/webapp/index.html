@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html layout:decorator="layout/main" xmlns:layout="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{app.name}">Application name</title>
+
+    <script th:src="@{/js/index.js}"></script>
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <h1 class="page-header">Main page content</h1>
+
+        <div class="row">
+            Hello main page
+        </div>
+
+    </div>
+</body>
+</html>
