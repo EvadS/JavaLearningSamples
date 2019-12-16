@@ -1,7 +1,6 @@
 package com.se.sample.springconfiguration.service;
 
 
-
 import com.se.sample.springconfiguration.model.Customer;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
