@@ -1,0 +1,34 @@
+###Cтандартные возможности Spring Cloud (Netflix OSS).
+
+
+#Используемые технологии 
+* Eureka
+* Feign Client
+* RestTemplate
+* WebClient
+* Hystrix
+* MongoDB 
+
+##Дополнительные материалы 
+* [Spring Cloud Netflix: Hystrix по-русски + Feign Client](https://medium.com/@kirill.sereda/spring-cloud-netflix-hystrix-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-e60e91a6770f)
+
+* [статья Reactive](https://medium.com/@kirill.sereda/reactive-programming-reactor-%D0%B8-spring-webflux-3f779953ed45)
+
+* [статья Feign Client](https://medium.com/@kirill.sereda/spring-cloud-netflix-feign-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-7b8272e8e110)
+
+Eureka Server 
+http://localhost:8761 
+
+
+
+clients (User-Service):
+http://localhost:8082/
+запросы на Gallery service 
+RestTemplate, Feign Clientи WebClient
+user-service будет получать данные из БД через gallery-service. В случае выхода из строя БД или gallery-service мы будем использовать библиотеку Hystrix
+
+Gallery-Service
+http://localhost:8081/
+
+
+
