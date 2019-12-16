@@ -1,11 +1,6 @@
-package com.sample.galleryservice.controller;
+package com.se;
 
-import com.example.galleryservice.exception.BucketNotFoundException;
 
-import com.example.galleryservice.payload.ErrorResponse;
-
-import com.sample.galleryservice.model.Bucket;
-import com.sample.galleryservice.repository.BucketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.DuplicateKeyException;
@@ -110,6 +105,11 @@ public class BucketController {
                 .map(val -> new Bucket( "" + val, "Python", "default theme", 0, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2f2NovvIAZjv9jGeSmzXnWnkiIXZX2VR7i2e-v_V756pWxFSS"));
     }
 
+
+    /**
+     * получить данные по мере их поступления. Это одна из основных идей реактивного программирования.
+     * @return
+     */
     // Get all Bucket from the database (every 1 second you will receive 1 record from the DB)
     @GetMapping(value = "/stream/buckets/delay", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Bucket> streamAllBucketsDelay() {

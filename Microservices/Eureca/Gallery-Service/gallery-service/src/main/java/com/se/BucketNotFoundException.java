@@ -1,4 +1,4 @@
-package com.sample.galleryservice.exception;
+package com.se;
 
 public class BucketNotFoundException extends RuntimeException {
 

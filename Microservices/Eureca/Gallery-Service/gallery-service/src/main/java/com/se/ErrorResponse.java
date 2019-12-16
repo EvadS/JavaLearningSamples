@@ -1,4 +1,4 @@
-package com.sample.galleryservice.payload;
+package com.se;
 
 
 public class ErrorResponse {

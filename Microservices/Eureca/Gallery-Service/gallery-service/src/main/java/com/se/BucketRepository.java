@@ -1,8 +1,7 @@
-package com.sample.galleryservice.repository;
+package com.se;
 
 
 
-import com.sample.galleryservice.model.Bucket;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 
