@@ -20,11 +20,21 @@ eureka:
 
 zuul:
   routes:
+#    auth-service:
+#      strip-prefix: false
+#      sensitive-headers: Cookie,Set-Cookie
+#      path: /auth/**
+#      service-id: security-service
     auth-service:
+      # By default, all requests to gallery service for example will start with: "/gallery/"
+      # What will be sent to the gallery service is what comes after the path defined,
+      # So, if request is "/gallery/view/1", gallery service will get "/view/1".
+      # In case of auth, we need to pass the "/auth/" in the path to auth service. So, set strip-prefix to false
       strip-prefix: false
-      sensitive-headers: Cookie,Set-Cookie
-      path: /auth/**
+      sensitive-headers: Cookie,Set-Cookie  # Exclude authorization from sensitive headers
+      path: /auth/**   # Map path to auth service
       service-id: security-service
+
     zuul-gallery-service:
       path: /my-gallery-path/**
       service-id: gallery-service

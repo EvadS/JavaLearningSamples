@@ -1,6 +1,6 @@
 spring:
   application:
-    name: security-service22
+    name: security-service
 
 server:
   port: 9100
