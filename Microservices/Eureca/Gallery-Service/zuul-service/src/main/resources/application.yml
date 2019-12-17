@@ -1,0 +1,58 @@
+#
+spring:
+  application:
+    name: zuul-service
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: ms-config-server
+
+server:
+  port: 8766
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+zuul:
+  routes:
+    auth-service:
+      strip-prefix: false
+      sensitive-headers: Cookie,Set-Cookie
+      path: /auth/**
+      service-id: security-service
+    zuul-gallery-service:
+      path: /my-gallery-path/**
+      service-id: gallery-service
+    user-service:
+      path: /users/**
+      service-id: user-service
+
+#spring:
+#  application:
+#    name: zuul-service
+#server:
+#  port: 8766
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+#  instance:
+#    preferIpAddress: true
+#  zuul:
+#      routes:
+##        auth-service:
+##          strip-prefix: false
+##          sensitive-headers: Cookie,Set-Cookie
+##          path: /auth/**
+##          service-id: security-service
+#        gallery-service:
+#          path: /gallery/**
+#          service-id: gallery-service
+#        user-service:
+#          path: /users/**
+#          service-id: user-service

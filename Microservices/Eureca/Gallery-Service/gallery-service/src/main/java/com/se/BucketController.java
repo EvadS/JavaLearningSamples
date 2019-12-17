@@ -29,7 +29,7 @@ public class BucketController {
 
     @RequestMapping("/")
     public String home() {
-        String home = "Gallery-Service running at port: " + env.getProperty("local.server.port");
+        String home = "MY Gallery-Service running at port: " + env.getProperty("local.server.port");
         logger.info(home);
         return home;
     }
