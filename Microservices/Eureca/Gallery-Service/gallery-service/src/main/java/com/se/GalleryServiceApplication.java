@@ -15,6 +15,7 @@ import reactor.core.publisher.Flux;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableReactiveMongoRepositories
+@EnableConfigClient
 public class GalleryServiceApplication {
 
 

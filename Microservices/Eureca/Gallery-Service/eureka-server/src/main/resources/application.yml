@@ -10,6 +10,9 @@ eureka:
     service-url:
       defaultZone:  http://localhost:8761/eureka
   #    instance-info-replication-interval-seconds: 10
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
   server:
     eviction-interval-timer-in-ms: 50000
 #    wait-time-in-ms-when-sync-empty: 5

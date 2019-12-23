@@ -1,0 +1,7 @@
+Spring Config Server → babysitter for configurations of all APIs
+Spring Cloud Netflix Eureka → directory for all APIs
+Spring Cloud Netflix Ribbon → network cops for all communications
+Spring Cloud Netflix Hystrix → re-router/circuit breaker
+Spring Cloud Netflix Hystrix Dashboard → cctv cameras for all rest calls
+Spring Cloud Netflix Zuul → gatekeeper for APIs
+Dockers → big smiling fish thingy, for building, shipping & running apps
