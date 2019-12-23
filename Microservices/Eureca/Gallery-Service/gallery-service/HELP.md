@@ -1,5 +1,6 @@
-###Crud application 
+#Crud application 
 
+собственно бызавое приложение, для доступа к бд 
 
 * MongoDB
 * Spring WebFlux для реактивности 
@@ -9,8 +10,6 @@
 Запустите Eureka Server вначале, а затем запустите наш сервис и перейдите на
 
 http://localhost:8081/
-
-
 
 http://localhost:8081/getAll
 чтобы получить все данные из базы.

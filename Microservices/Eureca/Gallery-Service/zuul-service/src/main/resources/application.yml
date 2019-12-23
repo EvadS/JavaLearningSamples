@@ -42,6 +42,7 @@ zuul:
       path: /users/**
       service-id: user-service
 
+
 #spring:
 #  application:
 #    name: zuul-service

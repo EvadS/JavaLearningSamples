@@ -3,6 +3,7 @@
 
 
 [Install MongoDB Community Edition on Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+## Если есть установленный 
 
 
 ### Start MongoDB.
@@ -11,6 +12,7 @@
 ``` mongo ```
 ### Verify that MongoDB has started successfully
 ``` sudo service mongod status ```
+
 ### Mongodb user management:
 ###roles list:
 * read
