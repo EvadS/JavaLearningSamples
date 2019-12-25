@@ -76,18 +76,7 @@
             <version>8.18.0</version>
         </dependency>
 
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
-        </dependency>
-
-
-        <dependency>
+            <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
         </dependency>
@@ -120,6 +109,7 @@
     </dependencyManagement>
 
     <build>
+<finalName>appl</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

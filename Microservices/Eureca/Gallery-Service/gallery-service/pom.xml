@@ -16,17 +16,37 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
     </properties>
 
     <dependencies>
-        <dependency>
+         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
@@ -35,22 +55,21 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-
-
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-starter</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -60,51 +79,16 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>de.flapdoodle.embed</groupId>
-            <artifactId>de.flapdoodle.embed.mongo</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
-            <version>2.2.0.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-commons</artifactId>
-            <version>2.2.0.RELEASE</version>
-        </dependency>
-
-
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>2.6.1</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>2.6.1</version>
-            </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
 
     </dependencies>
 
@@ -122,19 +106,10 @@
     </dependencyManagement>
 
 
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
 
     <build>
+<finalName>appl</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
