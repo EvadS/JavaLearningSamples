@@ -16,6 +16,8 @@ http://localhost:8080/dogs
 ----
 ### Get Dog by Id
 http://localhost:8080/dogs/3
+
+
 {
    "id":3,
    "name":"Brinkley",
@@ -52,4 +54,21 @@ Error:(15, 29) java: cannot find symbol
   
   File -> settings -> [buuild execution ...] -> compiler -> Annotation processors -> Enable annotation processor
   
+## Exception Handling 
+### шаг 1 
+/getDogsBase()    
+ 
+мы можем делать так но столкнемся с проблемой дублирования так как нужно прописывать все сценарии во всез апи 
+### шаг 2 
+#### Controller Advice 
+ Это централизованное место для обработки всех исключений уровня приложения.
+ 
+ DogsServiceErrorAdvice
+ 
+ ###  шаг 3 
+ @ResponseStatus with Custom Exception
+ 
+http://localhost:8080/dogs/getDogsException
+ 
+ 
 
