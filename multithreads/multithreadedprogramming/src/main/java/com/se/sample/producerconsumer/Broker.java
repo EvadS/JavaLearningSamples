@@ -1,8 +1,20 @@
 package com.se.sample.producerconsumer;
 
-public class Broker {
-    public Boolean continueProducing;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
-    public void put(Integer i) {
+public class Broker
+{
+    public ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(100);
+    public Boolean continueProducing = Boolean.TRUE;
+
+    public void put(Integer data) throws InterruptedException
+    {
+        this.queue.put(data);
+    }
+
+    public Integer get() throws InterruptedException
+    {
+        return this.queue.poll(1, TimeUnit.SECONDS);
     }
 }
