@@ -29,30 +29,30 @@ public class RelationApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // Create a Post
-        Post2 post = new Post2("post title_" + System.currentTimeMillis(), "post description", "post content");
-        postRepository.save(post);
-
-// Create Comments
-        Comment2 comment1 = new Comment2("Great Post!");
-        comment1.setPost(post);
-        Comment2 comment2 = new Comment2("Really helpful Post. Thanks a lot!");
-        comment2.setPost(post);
-
-// Add comments in the Post
-        post.getComments().add(comment1);
-        post.getComments().add(comment2);
-
-// Save Post and Comments via the Post entity
-        postRepository.save(post);
-
-
-        // Retrieve Post
-        Post2 postres = postRepository.findById(post.getId()).get();
-
-// Get all the comments
-        Set<Comment2> comments = post.getComments();
-
-        comments.forEach(item -> System.out.println(item));
+//        Post2 post = new Post2("post title_" + System.currentTimeMillis(), "post description", "post content");
+//        postRepository.save(post);
+//
+//// Create Comments
+//        Comment2 comment1 = new Comment2("Great Post!");
+//        comment1.setPost(post);
+//        Comment2 comment2 = new Comment2("Really helpful Post. Thanks a lot!");
+//        comment2.setPost(post);
+//
+//// Add comments in the Post
+//        post.getComments().add(comment1);
+//        post.getComments().add(comment2);
+//
+//// Save Post and Comments via the Post entity
+//        postRepository.save(post);
+//
+//
+//        // Retrieve Post
+//        Post2 postres = postRepository.findById(post.getId()).get();
+//
+//// Get all the comments
+//        Set<Comment2> comments = post.getComments();
+//
+//        comments.forEach(item -> System.out.println(item));
 
         System.out.println("-------------------");
 
