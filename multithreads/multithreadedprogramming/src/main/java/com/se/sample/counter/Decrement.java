@@ -14,11 +14,15 @@ public class Decrement implements Runnable {
     public void run() {
         try
         {
-            for (Integer i = 1; i < 5 + 1; ++i)
+            int i = 5;
+            int currentValue   = counter.get();
+
+            while( currentValue > 0 && currentValue < 100)
+            //for (Integer i = 1; i < 5 + 1; ++i)
             {
-                System.out.println("Producer produced: " + i);
+                System.out.println("Decrement counter : " + i);
                 Thread.sleep(1000);
-                counter.decrement(i);
+                currentValue = counter.decrement(i);
             }
 
             this.counter.continueProducing = Boolean.FALSE;

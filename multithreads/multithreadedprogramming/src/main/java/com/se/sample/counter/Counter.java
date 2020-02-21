@@ -24,7 +24,9 @@ public class Counter {
         System.out.println("================================================");
         //TODO: зачем ??
         return counter;
+    }
 
-
+    public synchronized  Integer get(){
+        return counter;
     }
 }
