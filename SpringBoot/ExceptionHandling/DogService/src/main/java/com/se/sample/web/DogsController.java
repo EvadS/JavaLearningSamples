@@ -33,6 +33,7 @@ public class DogsController {
      */
     @GetMapping("/getDogsBase")
     public ResponseEntity<List<Dog>> getDogsBase() {
+        int  a= 0;
         List<Dog> dogs;
         try {
             dogs = service.getDogs();
