@@ -1,0 +1,49 @@
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+ 
+dependencies {
+ //   compile 'log4j:log4j:1.2.17'
+
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:slf4j-log4j12:1.7.5'
+
+    compile project(':core')
+}
+
+//create a single Jar with all dependencies
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': '1.0.0',
+                'Main-Class': 'net.petrikainulainen.gradle.client.HelloWorld'
+    }
+
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'net.petrikainulainen.gradle.client.HelloWorld'
+    }
+}
+
+mainClassName = 'net.petrikainulainen.gradle.client.HelloWorld'
+ 
+task copyLicense {
+    outputs.file new File("$buildDir/LICENSE")
+    doLast {
+        copy {
+            from "LICENSE"
+            into "$buildDir"
+        }
+    }
+}
+ 
+applicationDistribution.from(copyLicense) {
+    into ""
+}
