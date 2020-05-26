@@ -51,9 +51,3 @@ subprojects {
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter'
 }
-
-
-//Evgeniy Skiba, [26.05.20 12:09]
-task wrapper(type: Wrapper) {
-	gradleVersion = '6.0' //version required
-}

@@ -1,7 +1,10 @@
 # Base multi module sceleton 
 Require gradle 6 
 ---
-Edited ./gradle/wrapper/gradle-wrapper.properties and made sure "distributionUrl" was pointed at the gradle version I wanted (6.0 in my case).
+В проекте должен быть файл 
+\gradle\wrapper\gradle-wrapper.properties в котором нужно указать версию градла 
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.3-bin.zip
+
 ----
 ``` bash 
  gradle projects
