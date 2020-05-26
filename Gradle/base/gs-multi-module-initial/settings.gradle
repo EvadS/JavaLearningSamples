@@ -1,4 +1,0 @@
-rootProject.name = 'spring-boot-multimodule-app'
-
-include 'library'
-include 'application'

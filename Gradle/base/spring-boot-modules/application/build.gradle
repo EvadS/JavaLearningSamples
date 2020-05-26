@@ -1,0 +1,29 @@
+
+// require gradle 6+
+apply plugin: 'org.springframework.boot'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+dependencies {
+	implementation project(':library')
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+// for gradle 6
+bootJar {
+	archiveBaseName = 'freeway-server'
+	archiveVersion = '1.0.0'
+	//archiveName = "$baseName.$extension
+	archiveFileName = "app.${archiveExtension.get()}"
+}
+
+test {
+	useJUnitPlatform()
+}
