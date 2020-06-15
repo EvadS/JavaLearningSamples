@@ -7,7 +7,7 @@
 	<artifactId>JdbcTemplate</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<properties>
-		<spring.framework>4.3.0.RELEASE</spring.framework>
+		<spring.framework>5.2.7.RELEASE</spring.framework>
 		<postgres.version>42.1.4</postgres.version>
 	</properties>
 	<dependencies>
