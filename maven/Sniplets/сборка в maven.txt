@@ -1,0 +1,132 @@
+Сборка проекта
+
+1.
+Копирование всех зависимостей осуществлялось плагином maven-dependency-plugin, ниже его конфигурация:
+
+<plugin> 
+    <groupId>org.apache.maven.plugins</groupId> 
+    <artifactId>maven-dependency-plugin</artifactId> 
+    <configuration> 
+        <outputDirectory>${project.build.directory}/lib/</outputDirectory> 
+        <overWriteReleases>false</overWriteReleases> 
+        <overWriteSnapshots>false</overWriteSnapshots> 
+        <overWriteIfNewer>true</overWriteIfNewer>
+    </configuration> 
+    <executions> 
+        <execution> 
+            <id>copy-dependencies</id> 
+            <phase>package</phase> 
+            <goals> 
+                <goal>copy-dependencies</goal> 
+            </goals> 
+        </execution> 
+    </executions> 
+</plugin>
+
+----------------------------------------------------------------------
+Обращаем внимание, что все они складываются в директорию lib 
+указывается, на какой фазе происходит данная операция: package
+------------------------------------------------------------------------------------------------
+
+Информация в манифест добавлялась следующим образом:
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <configuration>
+        <archive>
+            <manifest>
+                <addClasspath>true</addClasspath>
+                <classpathPrefix>lib/</classpathPrefix>
+                <classpathLayoutType>simple</classpathLayoutType>
+                <mainClass>com.khmb.block_v2.Block_v2App</mainClass>
+            </manifest>
+            <manifestEntries>
+                <Version>${buildNumber}</Version>
+            </manifestEntries>
+        </archive>
+    </configuration>
+</plugin>
+
+-----
+
+В тэге <classpathPrefix/> как раз и указывается, что библиотеки тянутся из директории lib
+ Тэг <classpathLayoutType/> со значением simple говорит сборщику, что jar-ники следует скидывать в одну кучу.
+ 
+ ---------------------
+  перед сборкой в jar-архив скидать все ресурсы (картинки и .properties-файлы) в директорию со скомпилированными .class-файлами.
+  
+  <plugin>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>2.5</version>
+    <executions>
+        <execution>
+            <id>copy-resources</id>
+            <phase>validate</phase>
+            <goals>
+                <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>${project.build.outputDirectory}/com/khmb/${project.name}</outputDirectory>
+                <resources>          
+                    <resource>
+                        <directory>${project.build.sourceDirectory}/com/khmb/${project.name}</directory>
+                        <filtering>true</filtering>
+                        <includes>
+                            <include>**/*.properties</include>
+                        </includes>
+                    </resource>
+                    <resource>
+                        <directory>${project.build.sourceDirectory}/com/khmb/${project.name}</directory>
+                        <includes>
+                            <include>**/*.png</include>
+                        </includes>
+                    </resource>
+                </resources>              
+            </configuration>            
+        </execution>
+    </executions>
+</plugin>
+
+----------------------------------------------------------------------------------
+Никаких хитрых копирований, просто прошу maven положить всё точно также, как и было.
+ Но есть одна особенность: если png-файлы (а в проекте используются картинки только в этом формате) 
+ копируются просто так, то файлы .prioperties копируются фильтрующе, т.е. плагин посмотрит внутрь
+ них и если что нужно заменить переменными maven'а, заменит. На это указывает параметр тэга
+ <filtering/> — true. Поэтому-то ресурсы и разнесены по разным тэгам <resource/> — картинки
+ фильтровать бессмысленно.
+----------------------------------------------------------------------------------
+Компиляция проекта регулируется следующим плагином:
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>2.3.2</version>
+	<configuration>
+		<source>${jdkVersion}</source>
+		<target>${jdkVersion}</target>
+	</configuration>
+</plugin>
+  ---------------------------
+  buildnumber-maven-plugin. Роль плагина заключается в формировании номера версии, абсолютно любого. Я же решил включить туда номер версии моей программы (а точнее артефакта), плюс дату сборки:
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>buildnumber-maven-plugin</artifactId>
+    <version>1.0</version>
+    <configuration>
+        <format>{0}-{1,date,yyyyMMdd}</format>
+        <items>
+            <item>${project.version}</item>
+            <item>timestamp</item>
+        </items>
+        <doCheck>true</doCheck>
+        <doUpdate>true</doUpdate>
+    </configuration>
+    <executions>
+        <execution>
+            <phase>validate</phase>
+            <goals>
+                <goal>create</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
