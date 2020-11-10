@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+
+rootProject.name = 'gradle-multi-module'
+
+include 'demo-server'
+include 'demo-common'

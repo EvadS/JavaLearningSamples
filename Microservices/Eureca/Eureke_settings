@@ -1,5 +1,0 @@
-
-
-eureka.client.fetch-registry doesn't register itself in eureka server.
-
-eureka.client.register-with-eureka is determines if service register itself as a client in eureka server.

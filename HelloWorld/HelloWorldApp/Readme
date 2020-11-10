@@ -1,4 +1,0 @@
-javac HelloWorldApp.java
-
-Run 
-java -cp . HelloWorldApp
