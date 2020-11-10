@@ -97,3 +97,8 @@ local.properties
 hs_err_pid*
 /Gradle/base/spring-boot-modules/.gradle
 /Gradle/base/spring-boot-modules/.gradle
+/gradle/first-java-project/.gradle
+/gradle/gradle-java-base_jar/.gradle
+/gradle/gradle-java-base_jar/build
+/gradle/gradle-java-base_jar/.idea
+.gradle

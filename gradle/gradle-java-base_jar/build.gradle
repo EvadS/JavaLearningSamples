@@ -1,0 +1,52 @@
+
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+mainClassName = 'hello.HelloWorld'
+
+
+// tag::repositories[]
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+// end::repositories[]
+
+dependencies {
+    compile "joda-time:joda-time:2.2"
+    compile "log4j:log4j:1.2.17"
+}
+
+
+// end::repositories[]
+
+configurations {
+    jar.archiveName = 'submodule-jar.jar'
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+//    baseName = 'project' + project.version
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+//task wrapper(type: Wrapper) {
+//    gradleVersion = '6.3'
+//}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/java'
+}
+
+task hello {
+    doLast {
+        println  "**********hello world"
+    }
+}
