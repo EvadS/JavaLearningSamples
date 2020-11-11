@@ -1,3 +1,0 @@
-
-
-mvn compile exec:java -f pom.xml

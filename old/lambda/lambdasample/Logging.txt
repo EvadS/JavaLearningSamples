@@ -1,8 +1,0 @@
-Oct 29, 2019 9:19:28 AM com.se.sample.JavaLoggingAPI doSomeThingAndLog
-SEVERE: Info Log 1 
-Oct 29, 2019 9:19:28 AM com.se.sample.JavaLoggingAPI doSomeThingAndLog
-SEVERE: Info Log
-Oct 29, 2019 9:19:28 AM com.se.sample.JavaLoggingAPI doSomeThingAndLog
-WARNING: Info Log
-Oct 29, 2019 9:19:28 AM com.se.sample.JavaLoggingAPI doSomeThingAndLog
-INFO: Info Log

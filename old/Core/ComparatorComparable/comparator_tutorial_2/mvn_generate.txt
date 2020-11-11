@@ -1,6 +1,0 @@
-
- mvn archetype:generate \
-        -DgroupId=com.se.howtodoinjava \
-        -DartifactId=DemoJavaProject \
-        -DarchetypeArtifactId=maven-archetype-quickstart \
-        -DinteractiveMode=false

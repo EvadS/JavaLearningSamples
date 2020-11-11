@@ -9,19 +9,9 @@
 sudo tail -f /opt/sonarqube/logs/sonar.log
 ------------------------
 
- default administrator account username and password as admin / admin
+ default administrator account username and password as 
+admin / admin
  
- --- 
- token 
- evad 
- 2d162d130ff570affe461033972cb62b8ec07e6a
- ------
- mvn sonar:sonar \
-   -Dsonar.host.url=http://localhost:9000 \
-   -Dsonar.login=2d162d130ff570affe461033972cb62b8ec07e6a
-   ------
-
-mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=2d162d130ff570affe461033972cb62b8ec07e6a
 
 ## Use on maven 
 
@@ -45,8 +35,6 @@ mvn sonar:sonar -Dsonar.host.url=http://localhost:9000
   -Dsonar.login=the-generated-token
 ```
 
-### sample 
-https://github.com/SonarSource/sonar-scanning-examples/tree/master/sonarqube-scanner-maven/maven-basic
 
 ## Install Java
 SonarQube is written in Java language, so you will need to install Java to your system. First, add the Java repository with the following command:
@@ -103,7 +91,7 @@ su - postgres
 ```
 
 ------------------------------------------
-## Install
+## Install Posgre
 By default, the latest version of PostgreSQL is not available in the Ubuntu 18.04 default repository. So you will need to add the PostgreSQL repository to your system.
 
 You can do this with the following command:

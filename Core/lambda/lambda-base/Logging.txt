@@ -1,0 +1,8 @@
+Nov 11, 2020 4:26:03 PM com.se.sample.MyLogger doSomeThingAndLog
+SEVERE: Info Log 1 
+Nov 11, 2020 4:26:03 PM com.se.sample.MyLogger doSomeThingAndLog
+SEVERE: Info Log
+Nov 11, 2020 4:26:03 PM com.se.sample.MyLogger doSomeThingAndLog
+WARNING: Info Log
+Nov 11, 2020 4:26:03 PM com.se.sample.MyLogger doSomeThingAndLog
+INFO: Info Log
