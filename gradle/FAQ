@@ -1,0 +1,7 @@
+
+
+gradlew: Permission Denied
+
+```bash 
+	chmod +x gradlew
+```
