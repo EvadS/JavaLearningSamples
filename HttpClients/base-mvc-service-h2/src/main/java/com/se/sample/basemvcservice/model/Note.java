@@ -18,10 +18,11 @@ public class Note
     private Long id;
 
     //not null or empty
-    @NotBlank
+    @NotBlank(message = "{title.notempty}")
     private String title;
 
-    @NotBlank
+
+    @NotBlank(message = "{content.notempty}")
     private String content;
 
     public Long getId() {
