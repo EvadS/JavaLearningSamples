@@ -2,15 +2,15 @@ package com.se.sample.basemvcservice.controller;
 
 
 
-import com.se.sample.basemvcservice.config.JwtTokenProvider;
+import com.se.sample.basemvcservice.config.jwt.JwtTokenProvider;
 import com.se.sample.basemvcservice.exception.AppException;
 import com.se.sample.basemvcservice.model.Role;
 import com.se.sample.basemvcservice.model.RoleName;
 import com.se.sample.basemvcservice.model.User;
-import com.se.sample.basemvcservice.payload.ApiResponse;
-import com.se.sample.basemvcservice.payload.JwtAuthenticationResponse;
-import com.se.sample.basemvcservice.payload.LoginRequest;
-import com.se.sample.basemvcservice.payload.SignUpRequest;
+import com.se.sample.basemvcservice.payload.respone.ApiResponse;
+import com.se.sample.basemvcservice.payload.respone.JwtAuthenticationResponse;
+import com.se.sample.basemvcservice.payload.request.LoginRequest;
+import com.se.sample.basemvcservice.payload.request.SignUpRequest;
 import com.se.sample.basemvcservice.repository.RoleRepository;
 import com.se.sample.basemvcservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,13 +4,10 @@ package com.se.sample.basemvcservice.util;
 
 import com.se.sample.basemvcservice.model.Poll;
 import com.se.sample.basemvcservice.model.User;
-import com.se.sample.basemvcservice.payload.PollResponse;
-import com.se.sample.basemvcservice.payload.UserSummary;
+import com.se.sample.basemvcservice.payload.respone.PollResponse;
+import com.se.sample.basemvcservice.payload.respone.UserSummary;
 
 import java.time.Instant;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ModelMapper {
 

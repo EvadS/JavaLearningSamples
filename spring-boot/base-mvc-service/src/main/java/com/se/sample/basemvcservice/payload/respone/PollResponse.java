@@ -1,10 +1,9 @@
-package com.se.sample.basemvcservice.payload;
+package com.se.sample.basemvcservice.payload.respone;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.Instant;
-import java.util.List;
 
 public class PollResponse {
     private Long id;

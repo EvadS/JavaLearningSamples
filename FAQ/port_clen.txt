@@ -5,6 +5,7 @@ On Windows:
 netstat -ao | find "8080"
 Other Platforms other than windows :
 
+ubuntu 
 lsof -i:8080
 Kill the process ID you found (e.g.: 20712)
 

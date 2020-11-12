@@ -1,4 +1,4 @@
-package com.se.sample.basemvcservice.config;
+package com.se.sample.basemvcservice.config.security;
 
 
 import org.slf4j.Logger;

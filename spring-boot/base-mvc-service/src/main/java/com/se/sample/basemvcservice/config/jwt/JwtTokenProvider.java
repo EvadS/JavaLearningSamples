@@ -1,6 +1,7 @@
-package com.se.sample.basemvcservice.config;
+package com.se.sample.basemvcservice.config.jwt;
 
 
+import com.se.sample.basemvcservice.config.UserPrincipal;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.se.sample.basemvcservice.payload;
+package com.se.sample.basemvcservice.payload.respone;
 
 
 import java.util.List;

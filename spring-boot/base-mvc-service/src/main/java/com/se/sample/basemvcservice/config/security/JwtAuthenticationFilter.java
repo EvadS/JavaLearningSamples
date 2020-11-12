@@ -1,5 +1,7 @@
-package com.se.sample.basemvcservice.config;
+package com.se.sample.basemvcservice.config.security;
 
+import com.se.sample.basemvcservice.config.CustomUserDetailsService;
+import com.se.sample.basemvcservice.config.jwt.JwtTokenProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
