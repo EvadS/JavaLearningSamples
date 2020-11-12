@@ -1,6 +1,0 @@
-SET GLOBAL time_zone = '-6:00';
-
-Using update for spring.jpa.hibernate.ddl-auto property is fine for development.
- But, For production, You should keep the value of this property to “validate”,
-
-  mvn spring-boot:run
