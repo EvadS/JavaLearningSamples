@@ -20,7 +20,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-//FileSystemStorageService
 
 // TODO: 1. Create base interface
 // TODO: 2. Implement for db storing / file store / S3 store
