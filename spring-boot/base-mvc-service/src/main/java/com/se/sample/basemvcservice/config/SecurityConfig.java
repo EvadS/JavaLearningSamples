@@ -39,6 +39,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public static final String API_ROOT_URL = "/";
 
+
+    public static final String API_NOTES_URL = "/api/notes/**";
+
+
     private static final String[] SWAGGER_UI_URL = { //
             "/v2/api-docs",
             "/configuration/ui",
@@ -98,8 +102,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.js")
                 .permitAll()
                 .antMatchers(SWAGGER_UI_URL).permitAll()
-
                 .antMatchers(HttpMethod.GET, API_ROOT_URL).permitAll()
+                .antMatchers(API_NOTES_URL).permitAll()
+
                 .antMatchers("/api/auth/**")
                 .permitAll()
 //                .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")

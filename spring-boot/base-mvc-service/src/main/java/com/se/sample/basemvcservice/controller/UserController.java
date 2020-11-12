@@ -3,7 +3,7 @@ package com.se.sample.basemvcservice.controller;
 
 import com.se.sample.basemvcservice.config.CurrentUser;
 import com.se.sample.basemvcservice.config.UserPrincipal;
-import com.se.sample.basemvcservice.model.PollRepository;
+import com.se.sample.basemvcservice.repository.PollRepository;
 import com.se.sample.basemvcservice.payload.UserIdentityAvailability;
 import com.se.sample.basemvcservice.payload.UserSummary;
 import com.se.sample.basemvcservice.repository.UserRepository;

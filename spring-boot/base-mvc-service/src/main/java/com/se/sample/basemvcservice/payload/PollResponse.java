@@ -34,8 +34,6 @@ public class PollResponse {
         this.question = question;
     }
 
-
-
     public UserSummary getCreatedBy() {
         return createdBy;
     }
