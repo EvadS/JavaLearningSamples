@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import  com.se.sample.basemvcservice.config.security.*;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
@@ -41,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     public static final String API_NOTES_URL = "/api/notes/**";
+    public static final String API_BOOKS_URL = "/api/books/**";
 
 
     private static final String[] SWAGGER_UI_URL = { //
@@ -103,7 +105,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(SWAGGER_UI_URL).permitAll()
                 .antMatchers(HttpMethod.GET, API_ROOT_URL).permitAll()
+                // SkiEA for test
                 .antMatchers(API_NOTES_URL).permitAll()
+                .antMatchers(API_BOOKS_URL).permitAll()
 
                 .antMatchers("/api/auth/**")
                 .permitAll()
