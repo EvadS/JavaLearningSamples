@@ -34,6 +34,7 @@ public class StorageService {
         this.rootLocation = Paths.get(AppConstants.STORAGE_LOCATION);
     }
 
+    // TODO: refactored to use array of files
     public String storeFile(MultipartFile file) {
         // Normalize file name
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
