@@ -57,4 +57,21 @@ public class  BookControllerTest {
                 .andExpect(jsonPath("$[*].title",
                         containsInAnyOrder("Spring 5 Recipes", "Pro Spring MVC")));
     }
+
+    @Test
+    public void shouldReturn404WhenBookNotFound() throws Exception {
+        when(bookService.find(anyString())).thenReturn(Optional.empty());
+        mockMvc.perform(get("/books/123")).andExpect(status().isNotFound());
+    }
+    @Test
+    public void shouldReturnBookWhenFound() throws Exception {
+        when(bookService.find(anyString())).thenReturn(
+                Optional.of(
+                        new Book("123", "Spring 5 Recipes", "Marten Deinum", "Josh Long")));
+        mockMvc.perform(get("/books/123"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.isbn", equalTo("123")))
+                .andExpect(jsonPath("$.title", equalTo("Spring 5 Recipes")));
+    }
+
 }
