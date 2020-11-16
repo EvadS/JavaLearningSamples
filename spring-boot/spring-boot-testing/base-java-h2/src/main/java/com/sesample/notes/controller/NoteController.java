@@ -6,12 +6,10 @@ import com.sesample.notes.mapper.NoteMapper;
 import com.sesample.notes.model.NoteRequest;
 import com.sesample.notes.model.NoteResponse;
 import com.sesample.notes.repository.NoteRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -27,8 +25,11 @@ import java.util.stream.Collectors;
 @RequestMapping("/api")
 public class NoteController {
 
-    @Autowired
-    NoteRepository noteRepository;
+   private final NoteRepository noteRepository;
+
+    public NoteController(NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
+    }
 
     @GetMapping("/notes")
     public List<NoteResponse> getAllNotes() {

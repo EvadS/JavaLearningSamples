@@ -12,14 +12,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class NoteConfiguration implements WebMvcConfigurer {
 
     @Override
-    public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
-        configurer.setTaskExecutor(taskExecutor());
+    public void configureAsyncSupport(AsyncSupportConfigurer configurer)
+    {
+        configurer.setTaskExecutor(mytaskExecutor());
     }
 
-    @Bean
-    public ThreadPoolTaskExecutor taskExecutor() {
+    @Bean(name = "threadPoolTaskExecutor")
+    public ThreadPoolTaskExecutor mytaskExecutor() {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         taskExecutor.setThreadNamePrefix("mvc-task-");
         return taskExecutor;
     }
+
+
 }

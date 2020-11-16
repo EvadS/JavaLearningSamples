@@ -22,9 +22,9 @@ public class NoteResponse {
     @NotBlank
     private String content;
 
-    private Date createdAt;
+    private Long createdAt;
 
-    private Date updatedAt;
+    private Long updatedAt;
 
 
     public NoteResponse() {
@@ -54,19 +54,19 @@ public class NoteResponse {
         this.content = content;
     }
 
-    public Date getCreatedAt() {
+    public Long getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public Long getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(Long updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

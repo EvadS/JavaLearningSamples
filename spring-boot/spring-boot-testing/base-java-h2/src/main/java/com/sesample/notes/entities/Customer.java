@@ -1,4 +1,4 @@
-package com.sesample.notes.controller;
+package com.sesample.notes.entities;
 
 import javax.persistence.*;
 
@@ -19,7 +19,7 @@ public class Customer {
     @Column(nullable = false)
     private final String email;
 
-    Customer() {
+    public Customer() {
         this(null,null);
     }
 
@@ -28,6 +28,21 @@ public class Customer {
         this.email = email;
     }
 
+    public long getId() {
+        return id;
+    }
 
-// Other code omitted
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    // Other code omitted
 }

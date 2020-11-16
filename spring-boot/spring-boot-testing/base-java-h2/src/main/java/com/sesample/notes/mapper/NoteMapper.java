@@ -22,7 +22,7 @@ public interface NoteMapper {
             @Mapping(target="content", source="content"),
             @Mapping(target="title", source="title"),
             @Mapping(target="createdAt",  ignore = true),
-            @Mapping(target="updatedAt",  ignore = true)
+            @Mapping(target="lastModified",  ignore = true)
 
     })
     Note noteRequestToNote(NoteRequest noteReuest);
@@ -33,7 +33,7 @@ public interface NoteMapper {
             @Mapping(target="title", source="title"),
             @Mapping(target="id", source="id"),
             @Mapping(target="createdAt", source="createdAt"),
-            @Mapping(target="updatedAt", source="updatedAt")
+            @Mapping(target="updatedAt", source="lastModified")
     })
     NoteResponse noteToNoteResponse(Note note);
 }

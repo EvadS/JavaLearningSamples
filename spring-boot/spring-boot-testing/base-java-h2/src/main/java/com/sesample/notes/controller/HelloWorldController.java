@@ -5,6 +5,7 @@ package com.sesample.notes.controller;
  * @project base-java-h2
  */
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +15,13 @@ import java.util.concurrent.ThreadLocalRandom;
 @RestController
 public class HelloWorldController {
 
-    private final TaskExecutor taskExecutor;
+    @Autowired
+    private TaskExecutor taskExecutor;
+/*    private final TaskExecutor taskExecutor;
 
     public HelloWorldController(TaskExecutor taskExecutor) {
         this.taskExecutor = taskExecutor;
-    }
+    }*/
 
     @GetMapping("/task")
     public CompletableFuture<String> hello() {

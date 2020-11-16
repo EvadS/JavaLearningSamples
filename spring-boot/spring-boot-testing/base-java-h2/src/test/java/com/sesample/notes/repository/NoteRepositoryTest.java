@@ -1,9 +1,6 @@
 package com.sesample.notes.repository;
 
-import com.sesample.notes.controller.Customer;
 import com.sesample.notes.entities.Note;
-import org.assertj.core.api.EnumerableAssert;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +8,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.auditing.DateTimeProvider;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,7 +21,6 @@ import static org.junit.Assert.assertEquals;
 
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNot.*;
 
 
 import static org.hamcrest.CoreMatchers.is;
@@ -38,7 +33,6 @@ import static org.hamcrest.CoreMatchers.is;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @TestPropertySource(properties = "spring.flyway.enabled=false")
-@EnableJpaAuditing(dateTimeProviderRef = "testDateTimeProvider")
 public class NoteRepositoryTest {
 
     @Autowired
