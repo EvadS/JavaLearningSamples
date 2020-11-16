@@ -29,7 +29,6 @@ public class HelloWorldControllerTest {
     @MockBean
     private BookService bookService;
 
-
     @Test
     public void testHelloWorldController() throws Exception {
         MvcResult mvcResult = mockMvc.perform(get("/task"))

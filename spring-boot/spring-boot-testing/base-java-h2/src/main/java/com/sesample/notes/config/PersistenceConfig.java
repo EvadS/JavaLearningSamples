@@ -12,6 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @EnableJpaAuditing
 //@EnableJpaRepositories(repositoryFactoryBeanClass = EnversRevisionRepositoryFactoryBean.class)
-
-public class JpaEnversConfiguration {
+@EnableJpaRepositories
+public class PersistenceConfig {
 }

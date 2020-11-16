@@ -14,13 +14,16 @@ import java.net.URI;
 @RequestMapping("/books")
 public class BookController {
     private final BookService bookService;
+
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
+
     @GetMapping
     public Iterable<Book> list() {
         return bookService.findAll();
     }
+
     @GetMapping("/{isbn}")
     public ResponseEntity<Book> get(@PathVariable("isbn") String isbn) {
         return bookService.find(isbn)

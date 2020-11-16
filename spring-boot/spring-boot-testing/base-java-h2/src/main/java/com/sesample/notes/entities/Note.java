@@ -39,6 +39,20 @@ public class Note implements Serializable {
     @LastModifiedDate
     private Date updatedAt;
 
+    public Note() {
+    }
+
+
+    /**
+     *
+     * @param title
+     * @param content
+     */
+    public Note(@NotBlank String title, @NotBlank String content) {
+        this.title = title;
+        this.content = content;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -65,5 +79,16 @@ public class Note implements Serializable {
 
     public Date getUpdatedAt() {
         return updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Note{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }

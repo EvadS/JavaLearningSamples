@@ -20,7 +20,6 @@ public class HelloWorldController {
         this.taskExecutor = taskExecutor;
     }
 
-
     @GetMapping("/task")
     public CompletableFuture<String> hello() {
         return CompletableFuture.supplyAsync(() -> {
