@@ -21,6 +21,8 @@ build container
 ```bash
     docker run -p 28181:8181 --name base-spring-h2-docker  base-spring-h2:1.0.0
 ```
+docker run -v /tmp:/tmp -d yourcontainer
+
 
 start container
 ```bash

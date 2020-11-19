@@ -1,15 +1,19 @@
 package com.sesample.notes.controller;
 
 import com.sesample.notes.entities.Customer;
+import com.sesample.notes.entities.Note;
+import com.sesample.notes.mapper.CustomerMapper;
+import com.sesample.notes.mapper.NoteMapper;
+import com.sesample.notes.model.CustomerRequest;
+import com.sesample.notes.model.CustomerResponse;
+import com.sesample.notes.model.NoteResponse;
 import com.sesample.notes.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 /**
@@ -36,9 +40,18 @@ public class CustomerController {
     }
 
     @GetMapping
-    ResponseEntity<Collection<Customer>> getCollection(){
+    ResponseEntity<Collection<Customer>> getCollection() {
         return ResponseEntity.ok(this.customerRepository.findAll());
     }
 
+    @PostMapping("/customers")
+    public ResponseEntity<CustomerResponse> createCustomer(@Valid @RequestBody CustomerRequest customerRequest) {
 
+        Customer customer = CustomerMapper.INSTANCE.customerRequestToCustomer(customerRequest);
+        customerRepository.save(customer);
+
+        CustomerResponse customerResponse = CustomerMapper.INSTANCE.customerToCustomerResponse(customer);
+        return  ResponseEntity.ok(customerResponse);
+
+    }
 }

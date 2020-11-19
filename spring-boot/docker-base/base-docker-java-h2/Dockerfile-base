@@ -4,6 +4,6 @@ ADD ["target/note-service.jar", "app.jar"]
 
 EXPOSE 8181 8787
 ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
+
 RUN sh -c 'touch /app.jar'
-VOLUME /tmp
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=dev -jar /app.jar" ]
