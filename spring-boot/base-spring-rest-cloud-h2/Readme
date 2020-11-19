@@ -1,0 +1,5 @@
+# Base crud spring mvc application
+
+```bash
+ mvn spring-boot:Run
+ ```
