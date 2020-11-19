@@ -1,0 +1,38 @@
+# Base crud spring mvc application
+
+```bash
+mvn spring-boot:Run
+```
+
+#Docker
+
+##build image
+```bash
+docker build --file=Dockerfile \
+  --tag=base-spring-h2:1.0.0 .
+```
+
+## check
+```bash
+docker images
+```
+
+build container
+```bash
+    docker run -p 28181:8181 --name base-spring-h2-docker  base-spring-h2:1.0.0
+```
+
+start container
+```bash
+    docker start base-spring-h2-docker
+```
+# Running
+```http
+http://localhost:28181/swagger-ui.html
+```
+
+
+# logs
+```bash
+docker logs base-spring-h2-docker
+```
