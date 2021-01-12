@@ -1,0 +1,53 @@
+  
+
+
+
+//-----------------
+ try {
+            PlatformType platformType = PlatformType.valueOf(headersField[0]);
+            String applicationName = headersField[1];
+            String appVersion = headersField[2];
+
+            return new UserAgent(platformType, applicationName, appVersion);
+        } catch (IllegalArgumentException e) {
+
+            List<PlatformType> list = Arrays.asList(PlatformType.values());
+            String availablePlatform = list.stream()
+                    .map(n -> String.valueOf(n))
+                    .collect(Collectors.joining(" , ", "{", "}"));
+
+            throw new IncorrectUserAgentFormat(String.format("Incorrect platform type value in %s. The available values: %s",
+                    GatewayApiConstants.MB_APP_VERSION_HEADER_NAME, availablePlatform));
+        }
+
+//----------
+
+
+public enum PlatformType {
+    WEB(1, "web"),
+    ANDROID(2, "Android"),
+    IOS(3, "ios");
+
+    private int id;
+    private String value;
+
+    PlatformType(int id, String value) {
+        this.id = id;
+        this.value = value;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public static PlatformType of(int id) {
+        return Stream.of(PlatformType.values())
+                .filter(p -> p.getId() == id)
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
+    }
+}
