@@ -1,0 +1,16 @@
+
+
+
+#/bin/bash
+export PATH="$PATH:/home/evgeniy_skiba/Java_utils/sonarqube-7.9.3/bin/linux-x86-64/"
+
+reboot 
+
+
+
+проверить что подтянулось 
+---------------
+env | grep PATH
+
+----------------
+mvn sonar:sonar
